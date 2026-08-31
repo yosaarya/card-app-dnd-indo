@@ -1,18 +1,17 @@
 {
   "name": "card-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "data:fetch": "node scripts/fetch-spells.js",
+    "data:cards": "python3 scripts/generate-card-data.py"
   },
   "dependencies": {
-    "html-to-image": "^1.11.13",
-    "html2pdf.js": "^0.14.0",
-    "jspdf": "^4.2.1",
-    "lucide-react": "*",
+    "lucide-react": "^1.16.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

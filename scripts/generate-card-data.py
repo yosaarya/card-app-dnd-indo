@@ -1,8 +1,11 @@
 import json
 import re
+from pathlib import Path
 
-INPUT_FILE = '../src/data/spells-raw.json'
-OUTPUT_FILE = '../src/data/spells-card.json'
+# Relatif terhadap berkas skrip, bukan cwd, agar bisa dijalankan dari mana saja.
+DATA_DIR = Path(__file__).resolve().parent.parent / 'src' / 'data'
+INPUT_FILE = DATA_DIR / 'spells-raw.json'
+OUTPUT_FILE = DATA_DIR / 'spells-card.json'
 
 
 def extract_damage(desc):

@@ -2,6 +2,13 @@ import fs from 'fs';
 
 const API_URL = 'https://www.dnd5eapi.co/api/spells';
 
+const ORDINALS = ['Cantrip', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th'];
+
+// Tanpa ini semua level ditulis "1th/2th/3th Level".
+function formatLevel(level) {
+  return level === 0 ? 'Cantrip' : `${ORDINALS[level] ?? `${level}th`} Level`;
+}
+
 async function fetchAllSpells() {
   try {
 
@@ -29,9 +36,7 @@ async function fetchAllSpells() {
         const formattedSpell = {
           id: detail.index,
           name: detail.name,
-          level: detail.level === 0
-            ? 'Cantrip'
-            : `${detail.level}th Level`,
+          level: formatLevel(detail.level),
 
           school: detail.school
             ? detail.school.name
