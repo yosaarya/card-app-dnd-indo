@@ -320,7 +320,7 @@ export default function App() {
         }}
       />
 
-      <GuideDialog open={guideOpen} onClose={() => setGuideOpen(false)} />
+      <GuideDialog open={guideOpen} onClose={() => setGuideOpen(false)} spells={SPELLS} />
 
       {editingSpell && (
         <ArtPositionEditor
