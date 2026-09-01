@@ -7,6 +7,8 @@
  * aplikasi tidak pernah layar putih hanya gara-gara storage.
  */
 
+import { normalizeEntry } from './artwork';
+
 const STORAGE_KEY = 'dnd_custom_spells';
 
 function getStore() {
@@ -17,7 +19,17 @@ function getStore() {
   }
 }
 
-/** @returns {Record<string, string>} peta spellId -> data URL artwork */
+/** Membuang entri yang tidak berbentuk benar, apa pun format asalnya. */
+function normalizeAll(entries) {
+  const result = {};
+  for (const [id, value] of entries) {
+    const entry = normalizeEntry(value);
+    if (id && entry) result[id] = entry;
+  }
+  return result;
+}
+
+/** @returns {Record<string, {art: string, x: number, y: number, zoom: number, layout: string|null}>} */
 export function loadArtwork() {
   const store = getStore();
   if (!store) return {};
@@ -26,15 +38,12 @@ export function loadArtwork() {
     const parsed = JSON.parse(store.getItem(STORAGE_KEY) ?? 'null');
     if (!parsed) return {};
 
-    // Format lama menyimpan array [{ id, customArt }]; tetap dibaca supaya
-    // artwork pengguna lama tidak hilang.
+    // Format paling lama menyimpan array [{ id, customArt }].
     if (Array.isArray(parsed)) {
-      return Object.fromEntries(
-        parsed.filter((entry) => entry?.id && entry.customArt).map((entry) => [entry.id, entry.customArt]),
-      );
+      return normalizeAll(parsed.filter((entry) => entry?.id).map((entry) => [entry.id, entry.customArt]));
     }
 
-    if (typeof parsed === 'object') return parsed;
+    if (typeof parsed === 'object') return normalizeAll(Object.entries(parsed));
     return {};
   } catch {
     // Data rusak: buang daripada membuat aplikasi gagal start.
@@ -67,5 +76,5 @@ export function saveArtwork(artwork) {
 
 /** Perkiraan pemakaian storage artwork dalam byte. */
 export function artworkSize(artwork) {
-  return Object.values(artwork).reduce((total, value) => total + value.length, 0);
+  return Object.values(artwork).reduce((total, entry) => total + (entry?.art?.length ?? 0), 0);
 }

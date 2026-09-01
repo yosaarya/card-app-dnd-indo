@@ -22,11 +22,20 @@ function Row({ label, children }) {
 /** Keterangan lengkap: langkah versi panjang, catatan, lalu teks asli SRD. */
 export default function SpellDetailDialog({ spell, onClose }) {
   const closeRef = useRef(null);
+  // Hanya id-nya yang jadi dependensi: objek spell berganti identitas tiap kali
+  // artwork berubah, dan itu bukan alasan untuk memindahkan fokus.
+  const spellId = spell?.id;
+
+  // Fokus dipasang terpisah dari listener: onClose berganti identitas tiap
+  // render, jadi menggabungkannya membuat fokus direbut kembali ke tombol
+  // tutup setiap kali aplikasi merender ulang.
+  useEffect(() => {
+    if (spellId) closeRef.current?.focus();
+  }, [spellId]);
 
   useEffect(() => {
     if (!spell) return undefined;
 
-    closeRef.current?.focus();
     const onKeyDown = (event) => {
       if (event.key === 'Escape') onClose();
     };

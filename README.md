@@ -33,6 +33,23 @@ itulah satuan yang dipakai saat bermain.
 
 <br clear="right">
 
+## Dua tata letak, dan kenapa full-art bukan bawaan
+
+Kartu TCG komersial yang memakai full-art biasanya memuat kurang dari 200
+karakter teks aturan. Kartu di sini bermedian **339 karakter** dan maksimum
+**639** — hampir dua kali lipat, karena isinya langkah bermain, bukan satu
+serangan.
+
+Jadi full-art tersedia sebagai pilihan, bukan bawaan: pada spell berketerangan
+pendek hasilnya bagus, sedangkan pada spell yang langkahnya banyak kotak
+teksnya akan menutupi sebagian besar gambar. Yang memutuskan pengguna, per
+kartu, sambil melihat pratinjaunya.
+
+Karena posisi bagian penting gambar jadi berpengaruh, artwork bisa digeser dan
+diperbesar — dengan tetikus maupun tombol panah. Perubahan itu berlaku sampai
+ke hasil cetak, karena pratinjau di penyunting adalah komponen kartu yang sama
+dengan yang dicetak.
+
 ## Tiga masalah teknis yang menarik
 
 ### 1. Layar dan kertas harus benar-benar sama
@@ -123,7 +140,7 @@ npm run dev          # server pengembangan
 npm run build        # bundel produksi ke dist/
 npm run preview      # meninjau hasil build
 
-npm test             # 88 tes unit
+npm test             # 106 tes unit
 npm run lint
 npm run format
 ```
@@ -155,6 +172,7 @@ src/
     PrintQueue.jsx        panel antrean cetak
     PrintSheet.jsx        paginasi antrean menjadi halaman A4
     SpellDetailDialog.jsx keterangan lengkap satu spell
+    ArtPositionEditor.jsx pengatur posisi gambar dan tata letak
     GuideDialog.jsx       panduan aplikasi, cetak, dan glosarium
     Toast.jsx             notifikasi singkat
   hooks/
@@ -167,7 +185,8 @@ src/
     storage.js            localStorage yang tahan gagal
     image.js              pemotongan & kompresi artwork
     schools.js            warna aksen per school
-    __tests__/            88 tes unit untuk seluruh modul di atas
+    artwork.js            bentuk entri artwork, posisi, dan tata letak
+    __tests__/            106 tes unit untuk seluruh modul di atas
   styles/card.css         bingkai kartu (dipakai layar & cetak)
   print.css               lembar A4 dan tanda potong
   data/
@@ -190,10 +209,11 @@ npm run data:cards    # turunkan ringkasan kartu -> src/data/spells-card.json
 ## Keputusan dan batasannya
 
 - **Artwork disimpan di `localStorage`**, jadi hanya ada di perangkat yang
-  dipakai. Gambar dipotong ke rasio kartu dan dikompres dulu (contoh: PNG
-  111 KB menjadi JPEG 14 KB). Kalau kuota browser habis, aplikasi memberi
-  tahu dan artwork itu hanya bertahan sampai halaman ditutup — tidak gagal
-  diam-diam.
+  dipakai. Gambar diperkecil ke sisi terpanjang 900 px dan dikompres jadi
+  JPEG, tapi rasio aslinya dipertahankan — pemotongan ke bentuk kartu terjadi
+  saat render supaya posisinya masih bisa diatur. Kalau kuota browser habis,
+  aplikasi memberi tahu dan perubahan itu hanya bertahan sampai halaman
+  ditutup — tidak gagal diam-diam.
 - **Seluruh 319 kartu dirender sekaligus**, tanpa virtualisasi. Waktu sampai
   bisa dipakai ~1,1 detik pada mesin uji, jadi kerumitan virtualisasi belum
   sepadan. Kalau jumlah spell bertambah beberapa kali lipat, ini bagian

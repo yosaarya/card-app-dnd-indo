@@ -326,3 +326,90 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/* ==========================================================================
+   Varian full-art
+   --------------------------------------------------------------------------
+   Gambar memenuhi kartu dan teks menumpang di atasnya. Terbaca hanya kalau
+   teksnya pendek, jadi ini pilihan per kartu, bukan bawaan: teks aturan kartu
+   ini bermedian ~339 karakter, sementara kartu TCG komersial yang memakai
+   full-art biasanya di bawah 200.
+   ========================================================================== */
+
+.sc-card[data-layout='fullart'] .sc-window {
+  /* Jendela gambar melebar ke seluruh kartu dan turun ke lapisan paling
+     bawah; sisa isi kartu diletakkan di atasnya. */
+  position: absolute;
+  inset: 0;
+  height: auto;
+  margin: 0;
+  border: 0;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.sc-card[data-layout='fullart'] .sc-titlebar,
+.sc-card[data-layout='fullart'] .sc-typeline,
+.sc-card[data-layout='fullart'] .sc-rules,
+.sc-card[data-layout='fullart'] .sc-footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Peredup yang menjaga teks tetap terbaca di atas gambar apa pun. Ditaruh
+   sebagai lapisan tersendiri, bukan latar tiap elemen, supaya peralihannya
+   halus dan tidak ada tepi kotak yang terlihat. */
+.sc-card[data-layout='fullart'] .sc-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(2, 6, 23, 0.88) 0, rgba(2, 6, 23, 0) 22%),
+    linear-gradient(to top, rgba(2, 6, 23, 0.94) 0, rgba(2, 6, 23, 0.86) 45%, rgba(2, 6, 23, 0) 72%);
+}
+
+.sc-card[data-layout='frame'] .sc-scrim {
+  display: none;
+}
+
+.sc-card[data-layout='fullart'] .sc-titlebar {
+  background: none;
+  border-bottom: 0;
+}
+
+.sc-card[data-layout='fullart'] .sc-name {
+  text-shadow: 0 0.12em 0.35em rgba(2, 6, 23, 0.95);
+}
+
+/* Ruang kosong pemisah judul dan teks: di sinilah gambarnya terlihat. */
+.sc-card[data-layout='fullart'] .sc-spacer {
+  flex: 1 1 auto;
+  min-height: 3.5em;
+}
+
+.sc-card[data-layout='frame'] .sc-spacer {
+  display: none;
+}
+
+.sc-card[data-layout='fullart'] .sc-typeline {
+  margin-top: 0;
+  border-bottom-color: rgba(255, 255, 255, 0.25);
+  text-shadow: 0 0.1em 0.3em rgba(2, 6, 23, 0.9);
+}
+
+.sc-card[data-layout='fullart'] .sc-rules {
+  background: rgba(2, 6, 23, 0.72);
+  border-color: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(2px);
+}
+
+.sc-card[data-layout='fullart'] .sc-footer {
+  background: none;
+  border-top-color: rgba(255, 255, 255, 0.22);
+  text-shadow: 0 0.1em 0.3em rgba(2, 6, 23, 0.9);
+}
+
+.sc-card[data-layout='fullart'] .sc-footer dt {
+  color: #cbd5e1;
+}

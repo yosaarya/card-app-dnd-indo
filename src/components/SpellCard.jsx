@@ -4,13 +4,18 @@ import { shortLevel, buildTags } from '../lib/spells';
 import { buildHowTo, buildNotes } from '../lib/howto';
 import { castingTimeID, durationID, rangeShortID, componentsID } from '../lib/id';
 import { schoolAccent } from '../lib/schools';
+import { artStyle, DEFAULT_LAYOUT } from '../lib/artwork';
 
 /**
- * Kartu spell bergaya TCG. Komponen ini dipakai dua kali dengan markup
- * identik: di grid layar dan di lembar cetak (`variant="print"`), sehingga
- * yang dilihat pengguna sama persis dengan yang keluar dari printer.
+ * Kartu spell. Komponen ini dipakai untuk semuanya — grid layar, lembar
+ * cetak, dan pratinjau di penyunting posisi — supaya tidak mungkin ada
+ * tampilan yang berbeda dari hasil cetaknya.
+ *
+ * Satu urutan DOM melayani kedua tata letak: pada mode full-art, jendela
+ * gambar dan peredupnya diposisikan absolut sehingga keluar dari alur, dan
+ * sisa isinya menumpuk di atas gambar.
  */
-export default function SpellCard({ spell, variant = 'screen', className = '' }) {
+export default function SpellCard({ spell, variant = 'screen', layout = DEFAULT_LAYOUT, className = '' }) {
   const steps = buildHowTo(spell, 'card');
   const notes = buildNotes(spell);
   const tags = buildTags(spell);
@@ -26,6 +31,7 @@ export default function SpellCard({ spell, variant = 'screen', className = '' })
     <article
       className={`sc-card ${className}`}
       data-variant={variant}
+      data-layout={layout}
       data-longname={spell.name.length > 18}
       style={{ '--sc-accent': schoolAccent(spell.school) }}
     >
@@ -37,8 +43,13 @@ export default function SpellCard({ spell, variant = 'screen', className = '' })
       </header>
 
       <div className="sc-window">
-        {spell.artwork ? (
-          <img className="sc-art" src={spell.artwork} alt={`Artwork ${spell.name}`} />
+        {spell.artwork?.art ? (
+          <img
+            className="sc-art"
+            src={spell.artwork.art}
+            style={artStyle(spell.artwork)}
+            alt={`Artwork ${spell.name}`}
+          />
         ) : (
           <div className="sc-art-empty">
             {variant === 'screen' && <ImagePlus size={16} aria-hidden="true" />}
@@ -46,6 +57,9 @@ export default function SpellCard({ spell, variant = 'screen', className = '' })
           </div>
         )}
       </div>
+
+      <div className="sc-scrim" aria-hidden="true" />
+      <div className="sc-spacer" aria-hidden="true" />
 
       <p className="sc-typeline">
         <span className="sc-school">{spell.school}</span>

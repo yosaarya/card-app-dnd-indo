@@ -1,13 +1,19 @@
 /**
  * Memproses artwork yang di-drop pengguna sebelum disimpan.
  *
- * Foto mentah dari kamera bisa 5–10 MB dan langsung menghabiskan kuota
- * localStorage hanya dengan satu kartu. Gambar dipotong ke rasio kartu
- * (63x88 mm) lalu dikompres ke JPEG berukuran cukup untuk cetak.
+ * Foto mentah dari kamera bisa 5-10 MB dan langsung menghabiskan kuota
+ * localStorage hanya dengan satu kartu, jadi gambar diperkecil dan dikompres
+ * ke JPEG.
+ *
+ * Rasio aslinya sengaja dipertahankan: pemotongan ke bentuk kartu dilakukan
+ * saat render supaya pengguna masih bisa menggeser dan memperbesar gambarnya.
+ * Kalau dipotong sejak di sini, tidak ada sisa gambar yang bisa digeser.
+ *
+ * Sisi terpanjang 900 px setara sekitar 360 dpi pada kartu 63 mm — masih
+ * tajam untuk dicetak.
  */
 
-const TARGET_WIDTH = 560;
-const TARGET_HEIGHT = 782; // rasio 63:88, kira-kira 225 dpi saat dicetak
+const MAX_EDGE = 900;
 const JPEG_QUALITY = 0.82;
 
 export const MAX_UPLOAD_BYTES = 20 * 1024 * 1024;
@@ -45,22 +51,20 @@ export async function prepareArtwork(file) {
   const dataUrl = await readAsDataURL(file);
   const img = await loadImage(dataUrl);
 
+  // Gambar yang sudah kecil tidak perlu diperbesar.
+  const scale = Math.min(1, MAX_EDGE / Math.max(img.width, img.height));
+  const width = Math.max(1, Math.round(img.width * scale));
+  const height = Math.max(1, Math.round(img.height * scale));
+
   const canvas = document.createElement('canvas');
-  canvas.width = TARGET_WIDTH;
-  canvas.height = TARGET_HEIGHT;
+  canvas.width = width;
+  canvas.height = height;
 
   const ctx = canvas.getContext('2d');
   if (!ctx) return dataUrl; // fallback: pakai gambar asli
 
-  ctx.fillStyle = '#0f172a';
-  ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
-
-  // Crop tengah ala object-fit: cover.
-  const scale = Math.max(TARGET_WIDTH / img.width, TARGET_HEIGHT / img.height);
-  const drawWidth = img.width * scale;
-  const drawHeight = img.height * scale;
   ctx.imageSmoothingQuality = 'high';
-  ctx.drawImage(img, (TARGET_WIDTH - drawWidth) / 2, (TARGET_HEIGHT - drawHeight) / 2, drawWidth, drawHeight);
+  ctx.drawImage(img, 0, 0, width, height);
 
   return canvas.toDataURL('image/jpeg', JPEG_QUALITY);
 }

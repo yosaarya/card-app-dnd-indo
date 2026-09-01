@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Info, Minus, Plus, Trash2, Upload } from 'lucide-react';
+import { Crop, Info, Minus, Plus, Trash2, Upload } from 'lucide-react';
 import SpellCard from './SpellCard';
 
 const ICON_BUTTON =
@@ -15,11 +15,13 @@ const ICON_BUTTON =
 export default function SpellTile({
   spell,
   count,
+  layout,
   onAdd,
   onRemove,
   onArtwork,
   onClearArtwork,
   onShowDetail,
+  onEditArt,
 }) {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
@@ -50,6 +52,7 @@ export default function SpellTile({
       >
         <SpellCard
           spell={spell}
+          layout={layout}
           className={`border-2 shadow-xl transition-colors ${
             isDragging
               ? 'border-purple-400 ring-4 ring-purple-500/30'
@@ -88,7 +91,17 @@ export default function SpellTile({
           <Upload size={14} aria-hidden="true" />
         </button>
 
-        {spell.artwork && (
+        <button
+          type="button"
+          onClick={() => onEditArt(spell)}
+          className={ICON_BUTTON}
+          title="Atur posisi gambar dan tata letak"
+          aria-label={`Atur tampilan kartu ${spell.name}`}
+        >
+          <Crop size={14} aria-hidden="true" />
+        </button>
+
+        {spell.artwork?.art && (
           <button
             type="button"
             onClick={() => onClearArtwork(spell.id)}
