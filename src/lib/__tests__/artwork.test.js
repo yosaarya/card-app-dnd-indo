@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { clampTransform, normalizeEntry, artStyle, layoutFor, DEFAULT_TRANSFORM } from '../artwork';
+import {
+  clampTransform,
+  normalizeEntry,
+  artStyle,
+  layoutFor,
+  sumbuBisaDigeser,
+  DEFAULT_TRANSFORM,
+} from '../artwork';
 
 const ART = 'data:image/jpeg;base64,AAA';
 
@@ -82,5 +89,31 @@ describe('layoutFor', () => {
     expect(layoutFor(null, 'entahapa')).toBe('frame');
     expect(layoutFor(null, 'valueOf')).toBe('frame');
     expect(layoutFor(null, undefined)).toBe('frame');
+  });
+});
+
+describe('sumbuBisaDigeser', () => {
+  const kartu = { boxW: 240, boxH: 336 };
+
+  it('gambar lanskap hanya bisa digeser mendatar pada perbesaran 1x', () => {
+    expect(sumbuBisaDigeser({ imgW: 900, imgH: 600, ...kartu, zoom: 1 })).toEqual({ x: true, y: false });
+  });
+
+  it('gambar tegak yang lebih lonjong hanya bisa digeser tegak', () => {
+    expect(sumbuBisaDigeser({ imgW: 600, imgH: 1600, ...kartu, zoom: 1 })).toEqual({ x: false, y: true });
+  });
+
+  it('memperbesar membuka kedua sumbu', () => {
+    expect(sumbuBisaDigeser({ imgW: 900, imgH: 600, ...kartu, zoom: 1.2 })).toEqual({ x: true, y: true });
+  });
+
+  it('gambar serasio kartu tidak bisa digeser sama sekali pada 1x', () => {
+    // Artwork format lama sudah dipotong ke rasio kartu sejak diunggah.
+    expect(sumbuBisaDigeser({ imgW: 560, imgH: 784, ...kartu, zoom: 1 })).toEqual({ x: false, y: false });
+  });
+
+  it('mengembalikan dua-duanya false untuk ukuran yang tidak masuk akal', () => {
+    expect(sumbuBisaDigeser({ imgW: 0, imgH: 0, ...kartu })).toEqual({ x: false, y: false });
+    expect(sumbuBisaDigeser({ imgW: 900, imgH: 600, boxW: 0, boxH: 0 })).toEqual({ x: false, y: false });
   });
 });

@@ -73,3 +73,26 @@ export function artStyle(entry) {
 export function layoutFor(entry, fallback) {
   return entry?.layout ?? (Object.hasOwn(LAYOUTS, fallback ?? '') ? fallback : DEFAULT_LAYOUT);
 }
+
+/**
+ * Menentukan sumbu mana yang benar-benar bisa digeser.
+ *
+ * Pemotongan ala object-fit: cover hanya menyisakan kelebihan gambar pada satu
+ * sumbu. Gambar lanskap di dalam kartu tegak tidak punya sisa vertikal sama
+ * sekali pada perbesaran 1x, jadi menggesernya naik-turun memang tidak akan
+ * mengubah apa pun — perlu diperbesar dulu. Tanpa keterangan, itu terasa
+ * seperti kontrolnya rusak.
+ *
+ * @returns {{x: boolean, y: boolean}}
+ */
+export function sumbuBisaDigeser({ imgW, imgH, boxW, boxH, zoom = 1 }) {
+  if (!(imgW > 0 && imgH > 0 && boxW > 0 && boxH > 0)) return { x: false, y: false };
+
+  const cover = Math.max(boxW / imgW, boxH / imgH);
+  const lebar = imgW * cover * zoom;
+  const tinggi = imgH * cover * zoom;
+
+  // Toleransi seperempat piksel: pembulatan tata letak bisa menyisakan
+  // kelebihan sepersekian piksel yang tidak berguna untuk digeser.
+  return { x: lebar - boxW > 0.25, y: tinggi - boxH > 0.25 };
+}

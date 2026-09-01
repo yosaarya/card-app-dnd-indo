@@ -49,6 +49,9 @@ export default function SpellCard({ spell, variant = 'screen', layout = DEFAULT_
             src={spell.artwork.art}
             style={artStyle(spell.artwork)}
             alt={`Artwork ${spell.name}`}
+            /* Tanpa ini, menekan lama pada gambar memicu drag bawaan browser
+               dan merebut pointer dari penggeseran posisi. */
+            draggable={false}
           />
         ) : (
           <div className="sc-art-empty">
