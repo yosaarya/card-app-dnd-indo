@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { RotateCcw, X, ZoomIn, ZoomOut } from 'lucide-react';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import SpellCard from './SpellCard';
 import { clampTransform, layoutFor, LAYOUTS, ZOOM_MAX, ZOOM_MIN } from '../lib/artwork';
 
@@ -21,6 +22,8 @@ export default function ArtPositionEditor({ spell, entry, globalLayout, onChange
   const surfaceRef = useRef(null);
   const dragRef = useRef(null);
   const closeRef = useRef(null);
+
+  useBodyScrollLock(true);
 
   const transform = clampTransform(entry);
   const layout = layoutFor(entry, globalLayout);
