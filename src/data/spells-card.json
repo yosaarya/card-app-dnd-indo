@@ -2,7 +2,7 @@
   {
     "id": "acid-arrow",
     "name": "Acid Arrow",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Wizard"
@@ -70,7 +70,7 @@
   {
     "id": "aid",
     "name": "Aid",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -102,7 +102,7 @@
   {
     "id": "alarm",
     "name": "Alarm",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Ranger",
@@ -135,7 +135,7 @@
   {
     "id": "alter-self",
     "name": "Alter Self",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -168,7 +168,7 @@
   {
     "id": "animal-friendship",
     "name": "Animal Friendship",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -202,7 +202,7 @@
   {
     "id": "animal-messenger",
     "name": "Animal Messenger",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -268,7 +268,7 @@
   {
     "id": "animate-dead",
     "name": "Animate Dead",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Necromancy",
     "class": [
       "Cleric",
@@ -505,1090 +505,550 @@
     }
   },
   {
-
     "id": "arcane-lock",
-
     "name": "Arcane Lock",
-
-    "level": "2th Level",
-
+    "level": "2nd Level",
     "school": "Abjuration",
-
     "class": [
-
       "Wizard"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "Touch",
-
     "components": "V, S, M",
-
     "duration": "Until dispelled",
-
     "description": "You touch a closed door, window, gate, chest, or other entryway, and it becomes locked for the duration. You and the creatures you designate when you cast this spell can open the object normally. You can also set a password that, when spoken within 5 feet of the object, suppresses this spell for 1 minute. Otherwise, it is impassable until it is broken or the spell is dispelled or suppressed. Casting knock on the object suppresses arcane lock for 10 minutes.\nWhile affected by this spell, the object is more difficult to break or force open; the DC to break it or pick any locks on it increases by 10.",
-
     "card_data": {
-
       "summary": "Mengunci pintu, jendela, atau wadah secara magis.",
-
       "combat_type": "UTILITY",
-
       "damage": [],
-
       "healing": [],
-
       "save": null,
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": false,
-
       "ritual": false,
-
       "material_cost": true,
-
       "aoe": null,
-
       "effects": [
-
         "DC untuk membobol/membongkar objek meningkat sebesar +10",
-
         "Kastor & makhluk pilihan bisa membuka objek secara normal",
-
         "Bisa disetel kata sandi untuk nonaktifkan mantra selama 1 menit",
-
         "Mantra Knock menonaktifkan efek ini selama 10 menit"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "arcane-sword",
-
     "name": "Arcane Sword",
-
     "level": "7th Level",
-
     "school": "Evocation",
-
     "class": [
-
       "Bard",
-
       "Wizard"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "60 feet",
-
     "components": "V, S, M",
-
     "duration": "Up to 1 minute",
-
     "description": "You create a sword-shaped plane of force that hovers within range. It lasts for the duration.\nWhen the sword appears, you make a melee spell attack against a target of your choice within 5 feet of the sword. On a hit, the target takes 3d10 force damage. Until the spell ends, you can use a bonus action on each of your turns to move the sword up to 20 feet to a spot you can see and repeat this attack against the same target or a different one.",
-
     "card_data": {
-
       "summary": "Menciptakan pedang energi melayang untuk menyerang target.",
-
       "combat_type": "ATTACK",
-
       "damage": [
-
         "3d10 Force"
-
       ],
-
       "healing": [],
-
       "save": null,
-
       "attack_roll": true,
-
       "half_damage": false,
-
       "concentration": true,
-
       "ritual": false,
-
       "material_cost": true,
-
       "aoe": null,
-
       "effects": [
-
         "Melee spell attack saat muncul (3d10 Force)",
-
         "Bonus Action: Gerakkan pedang s.d 20 kaki & ulangi serangan"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "arcanists-magic-aura",
-
     "name": "Arcanist's Magic Aura",
-
-    "level": "2th Level",
-
+    "level": "2nd Level",
     "school": "Illusion",
-
     "class": [
-
       "Wizard"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "Touch",
-
     "components": "V, S, M",
-
     "duration": "24 hours",
-
     "description": "You place an illusion on a creature or an object you touch so that divination spells reveal false information about it. The target can be a willing creature or an object that isn't being carried or worn by another creature.\nWhen you cast the spell, choose one or both of the following effects. The effect lasts for the duration. If you cast this spell on the same creature or object every day for 30 days, placing the same effect on it each time, the illusion lasts until it is dispelled.\n***False Aura.*** You change the way the target appears to spells and magical effects, such as detect magic, that detect magical auras. You can make a nonmagical object appear magical, a magical object appear nonmagical, or change the object's magical aura so that it appears to belong to a specific school of magic that you choose. When you use this effect on an object, you can make the false magic apparent to any creature that handles the item.\n***Mask.*** You change the way the target appears to spells and magical effects that detect creature types, such as a paladin's Divine Sense or the trigger of a symbol spell. You choose a creature type and other spells and magical effects treat the target as if it were a creature of that type or of that alignment.",
-
     "card_data": {
-
       "summary": "Memalsukan aura magis atau tipe makhluk dari deteksi sihir.",
-
       "combat_type": "UTILITY",
-
       "damage": [],
-
       "healing": [],
-
       "save": null,
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": false,
-
       "ritual": false,
-
       "material_cost": true,
-
       "aoe": null,
-
       "effects": [
-
         "False Aura: Ubah deteksi aura objek/makhluk (misal: Detect Magic)",
-
         "Mask: Ubah deteksi tipe makhluk/alignment (misal: Divine Sense)",
-
         "Cast tiap hari selama 30 hari untuk efek permanen"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "astral-projection",
-
     "name": "Astral Projection",
-
     "level": "9th Level",
-
     "school": "Necromancy",
-
     "class": [
-
       "Cleric",
-
       "Warlock",
-
       "Wizard"
-
     ],
-
     "casting_time": "1 hour",
-
     "range": "10 feet",
-
     "components": "V, S, M",
-
     "duration": "Special",
-
     "description": "You and up to eight willing creatures within range project your astral bodies into the Astral Plane (the spell fails and the casting is wasted if you are already on that plane). The material body you leave behind is unconscious and in a state of suspended animation; it doesn't need food or air and doesn't age.\nYour astral body resembles your mortal form in almost every way, replicating your game statistics and possessions. The principal difference is the addition of a silvery cord that extends from between your shoulder blades and trails behind you, fading to invisibility after 1 foot. This cord is your tether to your material body. As long as the tether remains intact, you can find your way home. If the cord is cut--something that can happen only when an effect specifically states that it does--your soul and body are separated, killing you instantly.\nYour astral form can freely travel through the Astral Plane and can pass through portals there leading to any other plane. If you enter a new plane or return to the plane you were on when casting this spell, your body and possessions are transported along the silver cord, allowing you to re-enter your body as you enter the new plane. Your astral form is a separate incarnation. Any damage or other effects that apply to it have no effect on your physical body, nor do they persist when you return to it.\nThe spell ends for you and your companions when you use your action to dismiss it. When the spell ends, the affected creature returns to its physical body, and it awakens.\nThe spell might also end early for you or one of your companions. A successful dispel magic spell used against an astral or physical body ends the spell for that creature. If a creature's original body or its astral form drops to 0 hit points, the spell ends for that creature. If the spell ends and the silver cord is intact, the cord pulls the creature's astral form back to its body, ending its state of suspended animation.\nIf you are returned to your body prematurely, your companions remain in their astral forms and must find their own way back to their bodies, usually by dropping to 0 hit points.",
-
     "card_data": {
-
       "summary": "Memproyeksikan tubuh astral s.d 8 makhluk ke Astral Plane.",
-
       "combat_type": "UTILITY",
-
       "damage": [],
-
       "healing": [],
-
       "save": null,
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": false,
-
       "ritual": false,
-
       "material_cost": true,
-
       "aoe": null,
-
       "effects": [
-
         "Tubuh asli tidak menua & berada di suspended animation",
-
         "Tali perak putus = mati seketika",
-
         "Damage pada wujud astral tidak mempengaruhi tubuh fisik",
-
         "Mantra berakhir jika HP mencapai 0 atau di-Dismiss pakai Action"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "augury",
-
     "name": "Augury",
-
-    "level": "2th Level",
-
+    "level": "2nd Level",
     "school": "Divination",
-
     "class": [
-
       "Cleric"
-
     ],
-
     "casting_time": "1 minute",
-
     "range": "Self",
-
     "components": "V, S, M",
-
     "duration": "Instantaneous",
-
     "description": "By casting gem-inlaid sticks, rolling dragon bones, laying out ornate cards, or employing some other divining tool, you receive an omen from an otherworldly entity about the results of a specific course of action that you plan to take within the next 30 minutes. The GM chooses from the following possible omens:\n- Weal, for good results\n- Woe, for bad results\n- Weal and woe, for both good and bad results\n- Nothing, for results that aren't especially good or bad\nThe spell doesn't take into account any possible circumstances that might change the outcome, such as the casting of additional spells or the loss or gain of a companion.\nIf you cast the spell two or more times before completing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get a random reading. The GM makes this roll in secret.",
-
     "card_data": {
-
       "summary": "Menerima ramalan/pertanda terkait tindakan 30 menit ke depan.",
-
       "combat_type": "UTILITY",
-
       "damage": [],
-
       "healing": [],
-
       "save": null,
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": false,
-
       "ritual": true,
-
       "background_icon": "divination",
-
       "material_cost": true,
-
       "aoe": null,
-
       "effects": [
-
         "Hasil Omen: Weal (baik), Woe (buruk), Weal & Woe, atau Nothing",
-
         "Ramalan tidak memperhitungkan perubahan situasi mendadak",
-
         "Cast >1x sebelum Long Rest beri peluang 25% acak (kumulatif)"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "awaken",
-
     "name": "Awaken",
-
     "level": "5th Level",
-
     "school": "Transmutation",
-
     "class": [
-
       "Bard",
-
       "Druid"
-
     ],
-
     "casting_time": "8 hours",
-
     "range": "Touch",
-
     "components": "V, S, M",
-
     "duration": "Instantaneous",
-
     "description": "After spending the casting time tracing magical pathways within a precious gemstone, you touch a Huge or smaller beast or plant. The target must have either no Intelligence score or an Intelligence of 3 or less. The target gains an Intelligence of 10. The target also gains the ability to speak one language you know. If the target is a plant, it gains the ability to move its limbs, roots, vines, creepers, and so forth, and it gains senses similar to a human's. Your GM chooses statistics appropriate for the awakened plant, such as the statistics for the awakened shrub or the awakened tree.\nThe awakened beast or plant is charmed by you for 30 days or until you or your companions do anything harmful to it. When the charmed condition ends, the awakened creature chooses whether to remain friendly to you, based on how you treated it while it was charmed.",
-
     "card_data": {
-
       "summary": "Memberikan kesadaran, kecerdasan, dan bahasa pada hewan/tumbuhan.",
-
       "combat_type": "UTILITY",
-
       "damage": [],
-
       "healing": [],
-
       "save": null,
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": false,
-
       "ritual": false,
-
       "material_cost": true,
-
       "aoe": null,
-
       "effects": [
-
         "Target mendapat INT 10 dan bisa bicara 1 bahasa kastor",
-
         "Tumbuhan mendapatkan panca indra dan kemampuan bergerak",
-
         "Target ter-Charmed otomatis selama 30 hari"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "bane",
-
     "name": "Bane",
-
-    "level": "1th Level",
-
+    "level": "1st Level",
     "school": "Enchantment",
-
     "class": [
-
       "Bard",
-
       "Cleric"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "30 feet",
-
     "components": "V, S, M",
-
     "duration": "Up to 1 minute",
-
     "description": "Up to three creatures of your choice that you can see within range must make charisma saving throws. Whenever a target that fails this saving throw makes an attack roll or a saving throw before the spell ends, the target must roll a d4 and subtract the number rolled from the attack roll or saving throw.",
-
     "card_data": {
-
       "summary": "Target mendapat penalti -1d4 pada attack roll dan saving throw.",
-
       "combat_type": "SAVE",
-
       "damage": [],
-
       "healing": [],
-
       "save": "CHA",
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": true,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": null,
-
       "effects": [
-
         "Maksimal 3 target, Gagal CHA Save = Terkena kutukan penalti",
-
         "Kutukan: Kurangi hasil Attack Roll & Saving Throw sebesar 1d4"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "banishment",
-
     "name": "Banishment",
-
     "level": "4th Level",
-
     "school": "Abjuration",
-
     "class": [
-
       "Cleric",
-
       "Paladin",
-
       "Sorcerer",
-
       "Warlock",
-
       "Wizard"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "60 feet",
-
     "components": "V, S, M",
-
     "duration": "Up to 1 minute",
-
     "description": "You attempt to send one creature that you can see within range to another plane of existence. The target must succeed on a charisma saving throw or be banished.\nIf the target is native to the plane of existence you're on, you banish the target to a harmless demiplane. While there, the target is incapacitated. The target remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.\nIf the target is native to a different plane of existence than the one you're on, the target is banished with a faint popping noise, returning to its home plane. If the spell ends before 1 minute has passed, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. Otherwise, the target doesn't return.",
-
     "card_data": {
-
       "summary": "Mengasingkan target ke plane lain jika gagal charisma saving throw.",
-
       "combat_type": "SAVE",
-
       "damage": [],
-
       "healing": [],
-
       "save": "CHA",
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": true,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": null,
-
       "effects": [
-
         "Target lokal: Dibuang ke demiplane & status Incapacitated",
-
         "Target luar plane: Pulang ke home plane (permanen jika s.d 1 menit)"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "barkskin",
-
     "name": "Barkskin",
-
-    "level": "2th Level",
-
+    "level": "2nd Level",
     "school": "Transmutation",
-
     "class": [
-
       "Druid",
-
       "Ranger"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "Touch",
-
     "components": "V, S, M",
-
     "duration": "Up to 1 hour",
-
     "description": "You touch a willing creature. Until the spell ends, the target's skin has a rough, bark-like appearance, and the target's AC can't be less than 16, regardless of what kind of armor it is wearing.",
-
     "card_data": {
-
       "summary": "Mengubah kulit target menjadi sekeras kayu pohon dengan minimal AC 16.",
-
       "combat_type": "UTILITY",
-
       "damage": [],
-
       "healing": [],
-
       "save": null,
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": true,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": null,
-
       "effects": [
-
         "AC target tidak bisa kurang dari 16",
-
         "Tidak terpengaruh oleh jenis zirah/baju besi yang dipakai"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "beacon-of-hope",
-
     "name": "Beacon of Hope",
-
-    "level": "3th Level",
-
+    "level": "3rd Level",
     "school": "Abjuration",
-
     "class": [
-
       "Cleric"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "30 feet",
-
     "components": "V, S",
-
     "duration": "Up to 1 minute",
-
     "description": "This spell bestows hope and vitality. Choose any number of creatures within range. For the duration, each target has advantage on wisdom saving throws and death saving throws, and regains the maximum number of hit points possible from any healing.",
-
     "card_data": {
-
       "summary": "Beri advantage pada WIS & Death Save, serta maksimalkan semua healing.",
-
       "combat_type": "SAVE",
-
       "damage": [],
-
       "healing": [],
-
       "save": "WIS",
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": true,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": null,
-
       "effects": [
-
         "Target mendapat Advantage pada Wisdom & Death saving throws",
-
         "Semua pemulihan HP (healing) otomatis bernilai maksimal",
-
         "Bisa menargetkan banyak makhluk sekaligus dalam radius"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "bestow-curse",
-
     "name": "Bestow Curse",
-
-    "level": "3th Level",
-
+    "level": "3rd Level",
     "school": "Necromancy",
-
     "class": [
-
       "Bard",
-
       "Cleric",
-
       "Wizard"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "Touch",
-
     "components": "V, S",
-
     "duration": "Up to 1 minute",
-
     "description": "You touch a creature, and that creature must succeed on a wisdom saving throw or become cursed for the duration of the spell. When you cast this spell, choose the nature of the curse from the following options:\n- Choose one ability score. While cursed, the target has disadvantage on ability checks and saving throws made with that ability score.\n- While cursed, the target has disadvantage on attack rolls against you.\n- While cursed, the target must make a wisdom saving throw at the start of each of its turns. If it fails, it wastes its action that turn doing nothing.\n- While the target is cursed, your attacks and spells deal an extra 1d8 necrotic damage to the target.\nA remove curse spell ends this effect. At the GM's option, you may choose an alternative curse effect, but it should be no more powerful than those described above. The GM has final say on such a curse's effect.",
-
     "card_data": {
-
       "summary": "Memberikan kutukan dengan penalti berat pilihan kastor.",
-
       "combat_type": "SAVE",
-
       "damage": [
-
         "1d8 Necrotic"
-
       ],
-
       "healing": [],
-
       "save": "WIS",
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": true,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": null,
-
       "effects": [
-
         "Disadvantage check & save pada 1 Ability Score pilihan",
-
         "Disadvantage attack roll terhadap kastor",
-
         "Gagal WIS Save di awal turn = Kehilangan Action",
-
         "Serangan kastor ke target dapat tambahan +1d8 Necrotic"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "black-tentacles",
-
     "name": "Black Tentacles",
-
     "level": "4th Level",
-
     "school": "Conjuration",
-
     "class": [
-
       "Wizard"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "90 feet",
-
     "components": "V, S, M",
-
     "duration": "Up to 1 minute",
-
     "description": "Squirming, ebony tentacles fill a 20-foot square on ground that you can see within range. For the duration, these tentacles turn the ground in the area into difficult terrain.\nWhen a creature enters the affected area for the first time on a turn or starts its turn there, the creature must succeed on a Dexterity saving throw or take 3d6 bludgeoning damage and be restrained by the tentacles until the spell ends. A creature that starts its turn in the area and is already restrained by the tentacles takes 3d6 bludgeoning damage.\nA creature restrained by the tentacles can use its action to make a Strength or Dexterity check (its choice) against your spell save DC. On a success, it frees itself.",
-
     "card_data": {
-
       "summary": "Tentakel hitam muncul merestrain dan memberi damage berkala.",
-
       "combat_type": "SAVE",
-
       "damage": [
-
         "3d6 Bludgeoning"
-
       ],
-
       "healing": [],
-
       "save": "DEX",
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": true,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": "20 ft Square",
-
       "effects": [
-
         "Area menjadi Difficult Terrain",
-
         "Masuk/start turn di area: Gagal DEX Save = 3d6 Bludg & Restrained",
-
         "Jika start turn sudah ter-Restrained otomatis kena 3d6 Bludg",
-
         "Gunakan Action untuk lepas (STR/DEX check vs Spell DC)"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "blade-barrier",
-
     "name": "Blade Barrier",
-
     "level": "6th Level",
-
     "school": "Evocation",
-
     "class": [
-
       "Cleric"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "90 feet",
-
     "components": "V, S",
-
     "duration": "Up to 10 minutes",
-
     "description": "You create a vertical wall of whirling, razor-sharp blades made of magical energy. The wall appears within range and lasts for the duration. You can make a straight wall up to 100 feet long, 20 feet high, and 5 feet thick, or a ringed wall up to 60 feet in diameter, 20 feet high, and 5 feet thick. The wall provides three-quarters cover to creatures behind it, and its space is difficult terrain.\nWhen a creature enters the wall's area for the first time on a turn or starts its turn there, the creature must make a dexterity saving throw. On a failed save, the creature takes 6d10 slashing damage. On a successful save, the creature takes half as much damage.",
-
     "card_data": {
-
       "summary": "Dinding pisau berputar yang memberi cover dan damage besar.",
-
       "combat_type": "SAVE",
-
       "damage": [
-
         "6d10 Slashing"
-
       ],
-
       "healing": [],
-
       "save": "DEX",
-
       "attack_roll": false,
-
       "half_damage": true,
-
       "concentration": true,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": "100 ft Wall / 60 ft Ring",
-
       "effects": [
-
         "Memberikan Three-Quarters Cover (+5 AC & Dex Save)",
-
         "Area dinding dihitung sebagai Difficult Terrain",
-
         "Masuk/start turn di area: DEX Save vs 6d10 Slashing (Half jika lolos)"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "bless",
-
     "name": "Bless",
-
-    "level": "1th Level",
-
+    "level": "1st Level",
     "school": "Enchantment",
-
     "class": [
-
       "Cleric",
-
       "Paladin"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "30 feet",
-
     "components": "V, S, M",
-
     "duration": "Up to 1 minute",
-
     "description": "You bless up to three creatures of your choice within range. Whenever a target makes an attack roll or a saving throw before the spell ends, the target can roll a d4 and add the number rolled to the attack roll or saving throw.",
-
     "card_data": {
-
       "summary": "Memberikan bonus +1d4 pada attack roll dan saving throw s.d 3 rekan.",
-
       "combat_type": "SAVE",
-
       "damage": [],
-
       "healing": [],
-
       "save": null,
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": true,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": null,
-
       "effects": [
-
         "Pilih s.d 3 makhluk dalam jarak 30 kaki",
-
         "Target menambah +1d4 pada setiap Attack Roll dan Saving Throw"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "blight",
-
     "name": "Blight",
-
     "level": "4th Level",
-
     "school": "Necromancy",
-
     "class": [
-
       "Druid",
-
       "Sorcerer",
-
       "Warlock",
-
       "Wizard"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "30 feet",
-
     "components": "V, S",
-
     "duration": "Instantaneous",
-
     "description": "Necromantic energy washes over a creature of your choice that you can see within range, draining moisture and vitality from it. The target must make a constitution saving throw. The target takes 8d8 necrotic damage on a failed save, or half as much damage on a successful one. The spell has no effect on undead or constructs.\nIf you target a plant creature or a magical plant, it makes the saving throw with disadvantage, and the spell deals maximum damage to it.\nIf you target a nonmagical plant that isn't a creature, such as a tree or shrub, it doesn't make a saving throw; it simply withers and dies.",
-
     "card_data": {
-
       "summary": "Energi nekrotik pekat menghisap vitalitas musuh, mematikan bagi tumbuhan.",
-
       "combat_type": "SAVE",
-
       "damage": [
-
         "8d8 Necrotic"
-
       ],
-
       "healing": [],
-
       "save": "CON",
-
       "attack_roll": false,
-
       "half_damage": true,
-
       "concentration": false,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": null,
-
       "effects": [
-
         "Gagal CON Save = 8d8 Necrotic (Half jika sukses)",
-
         "Tidak berefek pada Undead dan Construct",
-
         "Target Tumbuhan/Plant Creature: Disadvantage save & otomatis Max Damage",
-
         "Tumbuhan non-magis biasa langsung mati layu tanpa save"
-
       ]
-
     }
-
   },
-
   {
-
     "id": "blindness-deafness",
-
     "name": "Blindness/Deafness",
-
-    "level": "2th Level",
-
+    "level": "2nd Level",
     "school": "Necromancy",
-
     "class": [
-
       "Bard",
-
       "Cleric",
-
       "Sorcerer",
-
       "Wizard"
-
     ],
-
     "casting_time": "1 action",
-
     "range": "30 feet",
-
     "components": "V",
-
     "duration": "1 minute",
-
     "description": "You can blind or deafen a foe. Choose one creature that you can see within range to make a constitution saving throw. If it fails, the target is either blinded or deafened (your choice) for the duration. At the end of each of its turns, the target can make a constitution saving throw. On a success, the spell ends.",
-
     "card_data": {
-
       "summary": "Memberikan status Blinded atau Deafened pada musuh.",
-
       "combat_type": "SAVE",
-
       "damage": [],
-
       "healing": [],
-
       "save": "CON",
-
       "attack_roll": false,
-
       "half_damage": false,
-
       "concentration": false,
-
       "ritual": false,
-
       "material_cost": false,
-
       "aoe": null,
-
       "effects": [
-
         "Gagal CON Save = Target terkena Blinded ATAU Deafened (pilihan kastor)",
-
         "Target mengulang CON Save di setiap akhir gilirannya untuk lepas"
-
       ]
-
     }
-
   },
   {
     "id": "blink",
     "name": "Blink",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -1622,7 +1082,7 @@
   {
     "id": "blur",
     "name": "Blur",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Sorcerer",
@@ -1654,7 +1114,7 @@
   {
     "id": "branding-smite",
     "name": "Branding Smite",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Paladin"
@@ -1688,7 +1148,7 @@
   {
     "id": "burning-hands",
     "name": "Burning Hands",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -1722,7 +1182,7 @@
   {
     "id": "call-lightning",
     "name": "Call Lightning",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Druid"
@@ -1756,7 +1216,7 @@
   {
     "id": "calm-emotions",
     "name": "Calm Emotions",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -1824,7 +1284,7 @@
   {
     "id": "charm-person",
     "name": "Charm Person",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -1930,7 +1390,7 @@
   {
     "id": "clairvoyance",
     "name": "Clairvoyance",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -2032,7 +1492,7 @@
   {
     "id": "color-spray",
     "name": "Color Spray",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Illusion",
     "class": [
       "Sorcerer",
@@ -2066,7 +1526,7 @@
   {
     "id": "command",
     "name": "Command",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Cleric",
@@ -2164,7 +1624,7 @@
   {
     "id": "comprehend-languages",
     "name": "Comprehend Languages",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -2302,7 +1762,7 @@
   {
     "id": "conjure-animals",
     "name": "Conjure Animals",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Druid",
@@ -4560,7 +4020,7 @@
   {
     "id": "floating-disk",
     "name": "Floating Disk",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Wizard"
@@ -4588,7 +4048,7 @@
   {
     "id": "fly",
     "name": "Fly",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -4618,7 +4078,7 @@
   {
     "id": "fog-cloud",
     "name": "Fog Cloud",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Druid",
@@ -4810,7 +4270,7 @@
   {
     "id": "gaseous-form",
     "name": "Gaseous Form",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -4908,7 +4368,7 @@
   {
     "id": "gentle-repose",
     "name": "Gentle Repose",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Necromancy",
     "class": [
       "Cleric",
@@ -5025,7 +4485,7 @@
   {
     "id": "glyph-of-warding",
     "name": "Glyph of Warding",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Bard",
@@ -5064,7 +4524,7 @@
   {
     "id": "goodberry",
     "name": "Goodberry",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -5095,7 +4555,7 @@
   {
     "id": "grease",
     "name": "Grease",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Wizard"
@@ -5279,7 +4739,7 @@
   {
     "id": "guiding-bolt",
     "name": "Guiding Bolt",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Cleric"
@@ -5312,7 +4772,7 @@
   {
     "id": "gust-of-wind",
     "name": "Gust of Wind",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Druid",
@@ -5438,7 +4898,7 @@
   {
     "id": "haste",
     "name": "Haste",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -5500,7 +4960,7 @@
   {
     "id": "healing-word",
     "name": "Healing Word",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -5532,7 +4992,7 @@
   {
     "id": "heat-metal",
     "name": "Heat Metal",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -5567,7 +5027,7 @@
   {
     "id": "hellish-rebuke",
     "name": "Hellish Rebuke",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Warlock"
@@ -5633,7 +5093,7 @@
   {
     "id": "heroism",
     "name": "Heroism",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -5664,7 +5124,7 @@
   {
     "id": "hideous-laughter",
     "name": "Hideous Laughter",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -5732,7 +5192,7 @@
   {
     "id": "hold-person",
     "name": "Hold Person",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -5799,7 +5259,7 @@
   {
     "id": "hunters-mark",
     "name": "Hunter's Mark",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Ranger"
@@ -5831,7 +5291,7 @@
   {
     "id": "hypnotic-pattern",
     "name": "Hypnotic Pattern",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -5900,7 +5360,7 @@
   {
     "id": "identify",
     "name": "Identify",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -5929,7 +5389,7 @@
   {
     "id": "illusory-script",
     "name": "Illusory Script",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -6024,7 +5484,7 @@
   {
     "id": "inflict-wounds",
     "name": "Inflict Wounds",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Necromancy",
     "class": [
       "Cleric"
@@ -6119,7 +5579,7 @@
   {
     "id": "invisibility",
     "name": "Invisibility",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -6182,7 +5642,7 @@
   {
     "id": "jump",
     "name": "Jump",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -6213,7 +5673,7 @@
   {
     "id": "knock",
     "name": "Knock",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -6273,7 +5733,7 @@
   {
     "id": "lesser-restoration",
     "name": "Lesser Restoration",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Bard",
@@ -6305,7 +5765,7 @@
   {
     "id": "levitate",
     "name": "Levitate",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -6369,7 +5829,7 @@
   {
     "id": "lightning-bolt",
     "name": "Lightning Bolt",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -6403,7 +5863,7 @@
   {
     "id": "locate-animals-or-plants",
     "name": "Locate Animals or Plants",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -6466,7 +5926,7 @@
   {
     "id": "locate-object",
     "name": "Locate Object",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -6499,7 +5959,7 @@
   {
     "id": "longstrider",
     "name": "Longstrider",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -6530,7 +5990,7 @@
   {
     "id": "mage-armor",
     "name": "Mage Armor",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Sorcerer",
@@ -6590,7 +6050,7 @@
   {
     "id": "magic-circle",
     "name": "Magic Circle",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -6654,7 +6114,7 @@
   {
     "id": "magic-missile",
     "name": "Magic Missile",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -6687,7 +6147,7 @@
   {
     "id": "magic-mouth",
     "name": "Magic Mouth",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -6716,7 +6176,7 @@
   {
     "id": "magic-weapon",
     "name": "Magic Weapon",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Paladin",
@@ -6774,7 +6234,7 @@
   {
     "id": "major-image",
     "name": "Major Image",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -6866,7 +6326,7 @@
   {
     "id": "mass-healing-word",
     "name": "Mass Healing Word",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Cleric"
@@ -6957,7 +6417,7 @@
   {
     "id": "meld-into-stone",
     "name": "Meld Into Stone",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Cleric"
@@ -7177,7 +6637,7 @@
   {
     "id": "mirror-image",
     "name": "Mirror Image",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Sorcerer",
@@ -7236,7 +6696,7 @@
   {
     "id": "misty-step",
     "name": "Misty Step",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Conjuration",
     "class": [
       "Sorcerer",
@@ -7298,7 +6758,7 @@
   {
     "id": "moonbeam",
     "name": "Moonbeam",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Druid"
@@ -7362,7 +6822,7 @@
   {
     "id": "nondetection",
     "name": "Nondetection",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Bard",
@@ -7392,7 +6852,7 @@
   {
     "id": "pass-without-trace",
     "name": "Pass Without Trace",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Druid",
@@ -7481,7 +6941,7 @@
   {
     "id": "phantom-steed",
     "name": "Phantom Steed",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Illusion",
     "class": [
       "Wizard"
@@ -7605,7 +7065,7 @@
   {
     "id": "plant-growth",
     "name": "Plant Growth",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -7767,7 +7227,7 @@
   {
     "id": "prayer-of-healing",
     "name": "Prayer of Healing",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Cleric"
@@ -8021,7 +7481,7 @@
   {
     "id": "protection-from-energy",
     "name": "Protection From Energy",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -8053,7 +7513,7 @@
   {
     "id": "protection-from-evil-and-good",
     "name": "Protection from Evil and Good",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -8086,7 +7546,7 @@
   {
     "id": "protection-from-poison",
     "name": "Protection from Poison",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -8119,7 +7579,7 @@
   {
     "id": "purify-food-and-drink",
     "name": "Purify Food and Drink",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Cleric",
@@ -8183,7 +7643,7 @@
   {
     "id": "ray-of-enfeeblement",
     "name": "Ray of Enfeeblement",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Necromancy",
     "class": [
       "Warlock",
@@ -8309,7 +7769,7 @@
   {
     "id": "remove-curse",
     "name": "Remove Curse",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -8463,7 +7923,7 @@
   {
     "id": "revivify",
     "name": "Revivify",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Cleric",
@@ -8494,7 +7954,7 @@
   {
     "id": "rope-trick",
     "name": "Rope Trick",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Wizard"
@@ -8554,7 +8014,7 @@
   {
     "id": "sanctuary",
     "name": "Sanctuary",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Cleric"
@@ -8584,7 +8044,7 @@
   {
     "id": "scorching-ray",
     "name": "Scorching Ray",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -8679,7 +8139,7 @@
   {
     "id": "see-invisibility",
     "name": "See Invisibility",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -8741,7 +8201,7 @@
   {
     "id": "sending",
     "name": "Sending",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -8828,7 +8288,7 @@
   {
     "id": "shatter",
     "name": "Shatter",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -8865,7 +8325,7 @@
   {
     "id": "shield",
     "name": "Shield",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Sorcerer",
@@ -8894,7 +8354,7 @@
   {
     "id": "shield-of-faith",
     "name": "Shield of Faith",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -8985,7 +8445,7 @@
   {
     "id": "silence",
     "name": "Silence",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -9015,7 +8475,7 @@
   {
     "id": "silent-image",
     "name": "Silent Image",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -9075,7 +8535,7 @@
   {
     "id": "sleep",
     "name": "Sleep",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -9105,7 +8565,7 @@
   {
     "id": "sleet-storm",
     "name": "Sleet Storm",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Druid",
@@ -9138,7 +8598,7 @@
   {
     "id": "slow",
     "name": "Slow",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -9197,7 +8657,7 @@
   {
     "id": "speak-with-animals",
     "name": "Speak with Animals",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -9227,7 +8687,7 @@
   {
     "id": "speak-with-dead",
     "name": "Speak with Dead",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Necromancy",
     "class": [
       "Bard",
@@ -9256,7 +8716,7 @@
   {
     "id": "speak-with-plants",
     "name": "Speak with Plants",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -9286,7 +8746,7 @@
   {
     "id": "spider-climb",
     "name": "Spider Climb",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -9316,7 +8776,7 @@
   {
     "id": "spike-growth",
     "name": "Spike Growth",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -9349,7 +8809,7 @@
   {
     "id": "spirit-guardians",
     "name": "Spirit Guardians",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Cleric"
@@ -9383,7 +8843,7 @@
   {
     "id": "spiritual-weapon",
     "name": "Spiritual Weapon",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Cleric"
@@ -9415,7 +8875,7 @@
   {
     "id": "stinking-cloud",
     "name": "Stinking Cloud",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Bard",
@@ -9546,7 +9006,7 @@
   {
     "id": "suggestion",
     "name": "Suggestion",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -9840,7 +9300,7 @@
   {
     "id": "thunderwave",
     "name": "Thunderwave",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -9905,7 +9365,7 @@
   {
     "id": "tiny-hut",
     "name": "Tiny Hut",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -9934,7 +9394,7 @@
   {
     "id": "tongues",
     "name": "Tongues",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -10149,7 +9609,7 @@
   {
     "id": "unseen-servant",
     "name": "Unseen Servant",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Bard",
@@ -10179,7 +9639,7 @@
   {
     "id": "vampiric-touch",
     "name": "Vampiric Touch",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Necromancy",
     "class": [
       "Warlock",
@@ -10408,7 +9868,7 @@
   {
     "id": "warding-bond",
     "name": "Warding Bond",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Cleric"
@@ -10436,7 +9896,7 @@
   {
     "id": "water-breathing",
     "name": "Water Breathing",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -10467,7 +9927,7 @@
   {
     "id": "water-walk",
     "name": "Water Walk",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Cleric",

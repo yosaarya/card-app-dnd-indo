@@ -2,7 +2,7 @@
   {
     "id": "acid-arrow",
     "name": "Acid Arrow",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Wizard"
@@ -31,7 +31,7 @@
   {
     "id": "aid",
     "name": "Aid",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -46,7 +46,7 @@
   {
     "id": "alarm",
     "name": "Alarm",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Ranger",
@@ -61,7 +61,7 @@
   {
     "id": "alter-self",
     "name": "Alter Self",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -76,7 +76,7 @@
   {
     "id": "animal-friendship",
     "name": "Animal Friendship",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -92,7 +92,7 @@
   {
     "id": "animal-messenger",
     "name": "Animal Messenger",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -122,7 +122,7 @@
   {
     "id": "animate-dead",
     "name": "Animate Dead",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Necromancy",
     "class": [
       "Cleric",
@@ -226,7 +226,7 @@
   {
     "id": "arcane-lock",
     "name": "Arcane Lock",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Wizard"
@@ -255,7 +255,7 @@
   {
     "id": "arcanists-magic-aura",
     "name": "Arcanist's Magic Aura",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Wizard"
@@ -285,7 +285,7 @@
   {
     "id": "augury",
     "name": "Augury",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Divination",
     "class": [
       "Cleric"
@@ -314,7 +314,7 @@
   {
     "id": "bane",
     "name": "Bane",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -347,7 +347,7 @@
   {
     "id": "barkskin",
     "name": "Barkskin",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -362,7 +362,7 @@
   {
     "id": "beacon-of-hope",
     "name": "Beacon of Hope",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Cleric"
@@ -376,7 +376,7 @@
   {
     "id": "bestow-curse",
     "name": "Bestow Curse",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Necromancy",
     "class": [
       "Bard",
@@ -420,7 +420,7 @@
   {
     "id": "bless",
     "name": "Bless",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Cleric",
@@ -452,7 +452,7 @@
   {
     "id": "blindness-deafness",
     "name": "Blindness/Deafness",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Necromancy",
     "class": [
       "Bard",
@@ -469,7 +469,7 @@
   {
     "id": "blink",
     "name": "Blink",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -484,7 +484,7 @@
   {
     "id": "blur",
     "name": "Blur",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Sorcerer",
@@ -499,7 +499,7 @@
   {
     "id": "branding-smite",
     "name": "Branding Smite",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Paladin"
@@ -513,7 +513,7 @@
   {
     "id": "burning-hands",
     "name": "Burning Hands",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -528,7 +528,7 @@
   {
     "id": "call-lightning",
     "name": "Call Lightning",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Druid"
@@ -542,7 +542,7 @@
   {
     "id": "calm-emotions",
     "name": "Calm Emotions",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -572,7 +572,7 @@
   {
     "id": "charm-person",
     "name": "Charm Person",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -622,7 +622,7 @@
   {
     "id": "clairvoyance",
     "name": "Clairvoyance",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -668,7 +668,7 @@
   {
     "id": "color-spray",
     "name": "Color Spray",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Illusion",
     "class": [
       "Sorcerer",
@@ -683,7 +683,7 @@
   {
     "id": "command",
     "name": "Command",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Cleric",
@@ -727,7 +727,7 @@
   {
     "id": "comprehend-languages",
     "name": "Comprehend Languages",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -790,7 +790,7 @@
   {
     "id": "conjure-animals",
     "name": "Conjure Animals",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Druid",
@@ -923,7 +923,7 @@
   {
     "id": "continual-flame",
     "name": "Continual Flame",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Cleric",
@@ -970,7 +970,7 @@
   {
     "id": "counterspell",
     "name": "Counterspell",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Sorcerer",
@@ -986,7 +986,7 @@
   {
     "id": "create-food-and-water",
     "name": "Create Food and Water",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Cleric",
@@ -1002,7 +1002,7 @@
   {
     "id": "create-or-destroy-water",
     "name": "Create or Destroy Water",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Cleric",
@@ -1048,7 +1048,7 @@
   {
     "id": "cure-wounds",
     "name": "Cure Wounds",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -1082,7 +1082,7 @@
   {
     "id": "darkness",
     "name": "Darkness",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -1098,7 +1098,7 @@
   {
     "id": "darkvision",
     "name": "Darkvision",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -1115,7 +1115,7 @@
   {
     "id": "daylight",
     "name": "Daylight",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Cleric",
@@ -1178,7 +1178,7 @@
   {
     "id": "detect-evil-and-good",
     "name": "Detect Evil and Good",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Cleric",
@@ -1193,7 +1193,7 @@
   {
     "id": "detect-magic",
     "name": "Detect Magic",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -1213,7 +1213,7 @@
   {
     "id": "detect-poison-and-disease",
     "name": "Detect Poison and Disease",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Cleric",
@@ -1230,7 +1230,7 @@
   {
     "id": "detect-thoughts",
     "name": "Detect Thoughts",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -1263,7 +1263,7 @@
   {
     "id": "disguise-self",
     "name": "Disguise Self",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -1309,7 +1309,7 @@
   {
     "id": "dispel-magic",
     "name": "Dispel Magic",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Bard",
@@ -1343,7 +1343,7 @@
   {
     "id": "divine-favor",
     "name": "Divine Favor",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Paladin"
@@ -1479,7 +1479,7 @@
   {
     "id": "enhance-ability",
     "name": "Enhance Ability",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -1496,7 +1496,7 @@
   {
     "id": "enlarge-reduce",
     "name": "Enlarge/Reduce",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -1511,7 +1511,7 @@
   {
     "id": "entangle",
     "name": "Entangle",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Druid"
@@ -1525,7 +1525,7 @@
   {
     "id": "enthrall",
     "name": "Enthrall",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -1558,7 +1558,7 @@
   {
     "id": "expeditious-retreat",
     "name": "Expeditious Retreat",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -1605,7 +1605,7 @@
   {
     "id": "faerie-fire",
     "name": "Faerie Fire",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Druid"
@@ -1633,7 +1633,7 @@
   {
     "id": "false-life",
     "name": "False Life",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Necromancy",
     "class": [
       "Sorcerer",
@@ -1648,7 +1648,7 @@
   {
     "id": "fear",
     "name": "Fear",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -1665,7 +1665,7 @@
   {
     "id": "feather-fall",
     "name": "Feather Fall",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -1698,7 +1698,7 @@
   {
     "id": "find-familiar",
     "name": "Find Familiar",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Wizard"
@@ -1712,7 +1712,7 @@
   {
     "id": "find-steed",
     "name": "Find Steed",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Conjuration",
     "class": [
       "Paladin"
@@ -1742,7 +1742,7 @@
   {
     "id": "find-traps",
     "name": "Find Traps",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Divination",
     "class": [
       "Cleric",
@@ -1819,7 +1819,7 @@
   {
     "id": "fireball",
     "name": "Fireball",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -1834,7 +1834,7 @@
   {
     "id": "flame-blade",
     "name": "Flame Blade",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Druid"
@@ -1862,7 +1862,7 @@
   {
     "id": "flaming-sphere",
     "name": "Flaming Sphere",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Conjuration",
     "class": [
       "Druid",
@@ -1892,7 +1892,7 @@
   {
     "id": "floating-disk",
     "name": "Floating Disk",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Wizard"
@@ -1906,7 +1906,7 @@
   {
     "id": "fly",
     "name": "Fly",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -1922,7 +1922,7 @@
   {
     "id": "fog-cloud",
     "name": "Fog Cloud",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Druid",
@@ -2017,7 +2017,7 @@
   {
     "id": "gaseous-form",
     "name": "Gaseous Form",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -2067,7 +2067,7 @@
   {
     "id": "gentle-repose",
     "name": "Gentle Repose",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Necromancy",
     "class": [
       "Cleric",
@@ -2126,7 +2126,7 @@
   {
     "id": "glyph-of-warding",
     "name": "Glyph of Warding",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Bard",
@@ -2142,7 +2142,7 @@
   {
     "id": "goodberry",
     "name": "Goodberry",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -2157,7 +2157,7 @@
   {
     "id": "grease",
     "name": "Grease",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Wizard"
@@ -2247,7 +2247,7 @@
   {
     "id": "guiding-bolt",
     "name": "Guiding Bolt",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Cleric"
@@ -2261,7 +2261,7 @@
   {
     "id": "gust-of-wind",
     "name": "Gust of Wind",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Druid",
@@ -2322,7 +2322,7 @@
   {
     "id": "haste",
     "name": "Haste",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -2352,7 +2352,7 @@
   {
     "id": "healing-word",
     "name": "Healing Word",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -2368,7 +2368,7 @@
   {
     "id": "heat-metal",
     "name": "Heat Metal",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -2383,7 +2383,7 @@
   {
     "id": "hellish-rebuke",
     "name": "Hellish Rebuke",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Warlock"
@@ -2412,7 +2412,7 @@
   {
     "id": "heroism",
     "name": "Heroism",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -2427,7 +2427,7 @@
   {
     "id": "hideous-laughter",
     "name": "Hideous Laughter",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -2459,7 +2459,7 @@
   {
     "id": "hold-person",
     "name": "Hold Person",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -2492,7 +2492,7 @@
   {
     "id": "hunters-mark",
     "name": "Hunter's Mark",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Ranger"
@@ -2506,7 +2506,7 @@
   {
     "id": "hypnotic-pattern",
     "name": "Hypnotic Pattern",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -2539,7 +2539,7 @@
   {
     "id": "identify",
     "name": "Identify",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -2554,7 +2554,7 @@
   {
     "id": "illusory-script",
     "name": "Illusory Script",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -2600,7 +2600,7 @@
   {
     "id": "inflict-wounds",
     "name": "Inflict Wounds",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Necromancy",
     "class": [
       "Cleric"
@@ -2644,7 +2644,7 @@
   {
     "id": "invisibility",
     "name": "Invisibility",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -2676,7 +2676,7 @@
   {
     "id": "jump",
     "name": "Jump",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -2693,7 +2693,7 @@
   {
     "id": "knock",
     "name": "Knock",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -2725,7 +2725,7 @@
   {
     "id": "lesser-restoration",
     "name": "Lesser Restoration",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Bard",
@@ -2743,7 +2743,7 @@
   {
     "id": "levitate",
     "name": "Levitate",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -2775,7 +2775,7 @@
   {
     "id": "lightning-bolt",
     "name": "Lightning Bolt",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -2790,7 +2790,7 @@
   {
     "id": "locate-animals-or-plants",
     "name": "Locate Animals or Plants",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -2825,7 +2825,7 @@
   {
     "id": "locate-object",
     "name": "Locate Object",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -2844,7 +2844,7 @@
   {
     "id": "longstrider",
     "name": "Longstrider",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -2861,7 +2861,7 @@
   {
     "id": "mage-armor",
     "name": "Mage Armor",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Sorcerer",
@@ -2893,7 +2893,7 @@
   {
     "id": "magic-circle",
     "name": "Magic Circle",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -2924,7 +2924,7 @@
   {
     "id": "magic-missile",
     "name": "Magic Missile",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -2939,7 +2939,7 @@
   {
     "id": "magic-mouth",
     "name": "Magic Mouth",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -2954,7 +2954,7 @@
   {
     "id": "magic-weapon",
     "name": "Magic Weapon",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Paladin",
@@ -2984,7 +2984,7 @@
   {
     "id": "major-image",
     "name": "Major Image",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -3031,7 +3031,7 @@
   {
     "id": "mass-healing-word",
     "name": "Mass Healing Word",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Cleric"
@@ -3076,7 +3076,7 @@
   {
     "id": "meld-into-stone",
     "name": "Meld Into Stone",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Cleric"
@@ -3187,7 +3187,7 @@
   {
     "id": "mirror-image",
     "name": "Mirror Image",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Sorcerer",
@@ -3218,7 +3218,7 @@
   {
     "id": "misty-step",
     "name": "Misty Step",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Conjuration",
     "class": [
       "Sorcerer",
@@ -3249,7 +3249,7 @@
   {
     "id": "moonbeam",
     "name": "Moonbeam",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Druid"
@@ -3279,7 +3279,7 @@
   {
     "id": "nondetection",
     "name": "Nondetection",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Bard",
@@ -3295,7 +3295,7 @@
   {
     "id": "pass-without-trace",
     "name": "Pass Without Trace",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Druid",
@@ -3338,7 +3338,7 @@
   {
     "id": "phantom-steed",
     "name": "Phantom Steed",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Illusion",
     "class": [
       "Wizard"
@@ -3401,7 +3401,7 @@
   {
     "id": "plant-growth",
     "name": "Plant Growth",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -3485,7 +3485,7 @@
   {
     "id": "prayer-of-healing",
     "name": "Prayer of Healing",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Cleric"
@@ -3603,7 +3603,7 @@
   {
     "id": "protection-from-energy",
     "name": "Protection From Energy",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -3621,7 +3621,7 @@
   {
     "id": "protection-from-evil-and-good",
     "name": "Protection from Evil and Good",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -3638,7 +3638,7 @@
   {
     "id": "protection-from-poison",
     "name": "Protection from Poison",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -3655,7 +3655,7 @@
   {
     "id": "purify-food-and-drink",
     "name": "Purify Food and Drink",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Transmutation",
     "class": [
       "Cleric",
@@ -3687,7 +3687,7 @@
   {
     "id": "ray-of-enfeeblement",
     "name": "Ray of Enfeeblement",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Necromancy",
     "class": [
       "Warlock",
@@ -3747,7 +3747,7 @@
   {
     "id": "remove-curse",
     "name": "Remove Curse",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -3824,7 +3824,7 @@
   {
     "id": "revivify",
     "name": "Revivify",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Cleric",
@@ -3839,7 +3839,7 @@
   {
     "id": "rope-trick",
     "name": "Rope Trick",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Wizard"
@@ -3867,7 +3867,7 @@
   {
     "id": "sanctuary",
     "name": "Sanctuary",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Cleric"
@@ -3881,7 +3881,7 @@
   {
     "id": "scorching-ray",
     "name": "Scorching Ray",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Sorcerer",
@@ -3928,7 +3928,7 @@
   {
     "id": "see-invisibility",
     "name": "See Invisibility",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -3960,7 +3960,7 @@
   {
     "id": "sending",
     "name": "Sending",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -4005,7 +4005,7 @@
   {
     "id": "shatter",
     "name": "Shatter",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -4022,7 +4022,7 @@
   {
     "id": "shield",
     "name": "Shield",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Sorcerer",
@@ -4037,7 +4037,7 @@
   {
     "id": "shield-of-faith",
     "name": "Shield of Faith",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Abjuration",
     "class": [
       "Cleric",
@@ -4081,7 +4081,7 @@
   {
     "id": "silence",
     "name": "Silence",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -4097,7 +4097,7 @@
   {
     "id": "silent-image",
     "name": "Silent Image",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Illusion",
     "class": [
       "Bard",
@@ -4127,7 +4127,7 @@
   {
     "id": "sleep",
     "name": "Sleep",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -4143,7 +4143,7 @@
   {
     "id": "sleet-storm",
     "name": "Sleet Storm",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Druid",
@@ -4159,7 +4159,7 @@
   {
     "id": "slow",
     "name": "Slow",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -4188,7 +4188,7 @@
   {
     "id": "speak-with-animals",
     "name": "Speak with Animals",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -4204,7 +4204,7 @@
   {
     "id": "speak-with-dead",
     "name": "Speak with Dead",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Necromancy",
     "class": [
       "Bard",
@@ -4219,7 +4219,7 @@
   {
     "id": "speak-with-plants",
     "name": "Speak with Plants",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Bard",
@@ -4235,7 +4235,7 @@
   {
     "id": "spider-climb",
     "name": "Spider Climb",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Sorcerer",
@@ -4251,7 +4251,7 @@
   {
     "id": "spike-growth",
     "name": "Spike Growth",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -4266,7 +4266,7 @@
   {
     "id": "spirit-guardians",
     "name": "Spirit Guardians",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Cleric"
@@ -4280,7 +4280,7 @@
   {
     "id": "spiritual-weapon",
     "name": "Spiritual Weapon",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Evocation",
     "class": [
       "Cleric"
@@ -4294,7 +4294,7 @@
   {
     "id": "stinking-cloud",
     "name": "Stinking Cloud",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Conjuration",
     "class": [
       "Bard",
@@ -4357,7 +4357,7 @@
   {
     "id": "suggestion",
     "name": "Suggestion",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
@@ -4497,7 +4497,7 @@
   {
     "id": "thunderwave",
     "name": "Thunderwave",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -4529,7 +4529,7 @@
   {
     "id": "tiny-hut",
     "name": "Tiny Hut",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Bard",
@@ -4544,7 +4544,7 @@
   {
     "id": "tongues",
     "name": "Tongues",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Divination",
     "class": [
       "Bard",
@@ -4657,7 +4657,7 @@
   {
     "id": "unseen-servant",
     "name": "Unseen Servant",
-    "level": "1th Level",
+    "level": "1st Level",
     "school": "Conjuration",
     "class": [
       "Bard",
@@ -4673,7 +4673,7 @@
   {
     "id": "vampiric-touch",
     "name": "Vampiric Touch",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Necromancy",
     "class": [
       "Warlock",
@@ -4776,7 +4776,7 @@
   {
     "id": "warding-bond",
     "name": "Warding Bond",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Abjuration",
     "class": [
       "Cleric"
@@ -4790,7 +4790,7 @@
   {
     "id": "water-breathing",
     "name": "Water Breathing",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Druid",
@@ -4807,7 +4807,7 @@
   {
     "id": "water-walk",
     "name": "Water Walk",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Transmutation",
     "class": [
       "Cleric",
@@ -4824,7 +4824,7 @@
   {
     "id": "web",
     "name": "Web",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Conjuration",
     "class": [
       "Sorcerer",
@@ -4867,7 +4867,7 @@
   {
     "id": "wind-wall",
     "name": "Wind Wall",
-    "level": "3th Level",
+    "level": "3rd Level",
     "school": "Evocation",
     "class": [
       "Druid",
@@ -4911,7 +4911,7 @@
   {
     "id": "zone-of-truth",
     "name": "Zone of Truth",
-    "level": "2th Level",
+    "level": "2nd Level",
     "school": "Enchantment",
     "class": [
       "Bard",
