@@ -246,9 +246,12 @@ export default function App() {
               ))}
             </div>
 
+            {/* Label teksnya disembunyikan di layar sempit, jadi tombolnya butuh
+                aria-label sendiri — tanpa itu namanya kosong bagi pembaca layar. */}
             <button
               type="button"
               onClick={() => setGuideOpen(true)}
+              aria-label="Buka panduan"
               className="flex items-center gap-2 rounded-xl border border-slate-700 px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
             >
               <BookOpen size={16} aria-hidden="true" />
@@ -258,6 +261,7 @@ export default function App() {
             <button
               type="button"
               onClick={() => setQueueOpen(true)}
+              aria-label={`Buka antrean cetak, ${queue.length} kartu`}
               className="flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-xs font-black uppercase tracking-wider text-white hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
             >
               <Printer size={16} aria-hidden="true" />
