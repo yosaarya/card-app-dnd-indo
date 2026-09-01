@@ -1,13 +1,15 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { BookOpen, Printer, Sparkles } from 'lucide-react';
 
 import rawSpells from './data/spells-card.json';
 import { normalizeSpells, filterSpells } from './lib/spells';
 import { loadArtwork, saveArtwork } from './lib/storage';
 import { prepareArtwork } from './lib/image';
+import { clampTransform, layoutFor, DEFAULT_LAYOUT, DEFAULT_TRANSFORM, LAYOUTS } from './lib/artwork';
 import { useFitCards } from './hooks/useFitCards';
 
 import FilterPanel from './components/FilterPanel';
+import ArtPositionEditor from './components/ArtPositionEditor';
 import GuideDialog from './components/GuideDialog';
 import PrintQueue from './components/PrintQueue';
 import PrintSheet from './components/PrintSheet';
@@ -45,6 +47,8 @@ export default function App() {
   const [detailSpell, setDetailSpell] = useState(null);
   const [queueOpen, setQueueOpen] = useState(false);
   const [guideOpen, setGuideOpen] = useState(false);
+  const [editingSpell, setEditingSpell] = useState(null);
+  const [globalLayout, setGlobalLayout] = useState(DEFAULT_LAYOUT);
   const [toast, setToast] = useState(null);
 
   const notify = useCallback((message, tone = 'success') => {
@@ -76,40 +80,110 @@ export default function App() {
     [queue, artwork],
   );
 
+  /**
+   * Cermin state artwork yang selalu mutakhir.
+   *
+   * State React baru terlihat pada render berikutnya, sehingga dua perubahan
+   * beruntun dalam satu tick — misalnya menahan tombol panah — akan sama-sama
+   * membaca nilai lama dan saling menimpa. Ref ini diperbarui serentak dengan
+   * setState, jadi setiap perubahan selalu bertumpu pada hasil sebelumnya.
+   *
+   * Semua penulisan artwork wajib lewat updateArtwork agar cerminnya tidak
+   * pernah menyimpang dari state.
+   */
+  const artworkRef = useRef(artwork);
+
+  const updateArtwork = useCallback(
+    (updater, pesanSukses) => {
+      const next = updater(artworkRef.current);
+      if (next === artworkRef.current) return;
+
+      artworkRef.current = next;
+      setArtwork(next);
+
+      const result = saveArtwork(next);
+      if (!result.ok) {
+        notify(
+          result.reason === 'quota'
+            ? 'Penyimpanan browser penuh — perubahan ini hanya bertahan sampai halaman ditutup.'
+            : 'Browser memblokir penyimpanan lokal, perubahan tidak tersimpan permanen.',
+          'error',
+        );
+      } else if (pesanSukses) {
+        notify(pesanSukses);
+      }
+    },
+    [notify],
+  );
+
   const handleArtwork = useCallback(
     async (spellId, file) => {
       try {
-        const dataUrl = await prepareArtwork(file);
-        const next = { ...artwork, [spellId]: dataUrl };
-        setArtwork(next);
-
-        const result = saveArtwork(next);
-        if (!result.ok) {
-          notify(
-            result.reason === 'quota'
-              ? 'Penyimpanan browser penuh — artwork ini hanya bertahan sampai halaman ditutup.'
-              : 'Browser memblokir penyimpanan lokal, artwork tidak tersimpan permanen.',
-            'error',
-          );
-        } else {
-          notify('Artwork terpasang.');
-        }
+        const art = await prepareArtwork(file);
+        updateArtwork(
+          (prev) => ({
+            // Gambar baru selalu mulai dari posisi tengah, tapi pilihan tata
+            // letak kartu itu dipertahankan.
+            ...prev,
+            [spellId]: { art, ...DEFAULT_TRANSFORM, layout: prev[spellId]?.layout ?? null },
+          }),
+          'Artwork terpasang.',
+        );
       } catch (err) {
         notify(err.message, 'error');
       }
     },
-    [artwork, notify],
+    [notify, updateArtwork],
+  );
+
+  /**
+   * Menerima perubahan sebagian. Patch boleh berupa objek (nilai mutlak, dipakai
+   * saat menggeser dan menggeser slider) atau fungsi dari posisi saat ini
+   * (perubahan relatif, dipakai tombol panah).
+   */
+  const handleArtChange = useCallback(
+    (spellId, patch) => {
+      updateArtwork((prev) => {
+        const current = prev[spellId];
+        const resolved = typeof patch === 'function' ? patch(clampTransform(current)) : patch;
+
+        // Tata letak boleh dipilih walau kartunya belum punya gambar.
+        if (!current && !('layout' in resolved)) return prev;
+
+        const next = current
+          ? {
+              ...current,
+              ...clampTransform({ ...current, ...resolved }),
+              layout: resolved.layout ?? current.layout,
+            }
+          : { art: '', ...DEFAULT_TRANSFORM, layout: resolved.layout };
+
+        return { ...prev, [spellId]: next };
+      });
+    },
+    [updateArtwork],
+  );
+
+  const handleArtReset = useCallback(
+    (spellId) => {
+      updateArtwork(
+        (prev) => (prev[spellId] ? { ...prev, [spellId]: { ...prev[spellId], ...DEFAULT_TRANSFORM } } : prev),
+        'Posisi dikembalikan ke tengah.',
+      );
+    },
+    [updateArtwork],
   );
 
   const handleClearArtwork = useCallback(
     (spellId) => {
-      const next = { ...artwork };
-      delete next[spellId];
-      setArtwork(next);
-      saveArtwork(next);
-      notify('Artwork dihapus.');
+      updateArtwork((prev) => {
+        if (!prev[spellId]) return prev;
+        const next = { ...prev };
+        delete next[spellId];
+        return next;
+      }, 'Artwork dihapus.');
     },
-    [artwork, notify],
+    [updateArtwork],
   );
 
   const handleAdd = useCallback((spell) => {
@@ -151,6 +225,27 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-2">
+            <div
+              className="hidden items-center rounded-xl border border-slate-700 p-0.5 sm:flex"
+              role="group"
+              aria-label="Tata letak kartu bawaan"
+            >
+              {Object.entries(LAYOUTS).map(([id, { label, hint }]) => (
+                <button
+                  key={id}
+                  type="button"
+                  onClick={() => setGlobalLayout(id)}
+                  aria-pressed={globalLayout === id}
+                  title={hint}
+                  className={`rounded-lg px-3 py-2 text-xs font-bold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-purple-400 ${
+                    globalLayout === id ? 'bg-purple-600 text-white' : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
             <button
               type="button"
               onClick={() => setGuideOpen(true)}
@@ -198,11 +293,13 @@ export default function App() {
                   key={spell.id}
                   spell={spell}
                   count={counts.get(spell.id) ?? 0}
+                  layout={layoutFor(spell.artwork, globalLayout)}
                   onAdd={handleAdd}
                   onRemove={handleRemoveOne}
                   onArtwork={handleArtwork}
                   onClearArtwork={handleClearArtwork}
                   onShowDetail={setDetailSpell}
+                  onEditArt={setEditingSpell}
                 />
               ))}
             </div>
@@ -225,10 +322,21 @@ export default function App() {
 
       <GuideDialog open={guideOpen} onClose={() => setGuideOpen(false)} />
 
+      {editingSpell && (
+        <ArtPositionEditor
+          spell={editingSpell}
+          entry={artwork[editingSpell.id] ?? null}
+          globalLayout={globalLayout}
+          onChange={(patch) => handleArtChange(editingSpell.id, patch)}
+          onReset={() => handleArtReset(editingSpell.id)}
+          onClose={() => setEditingSpell(null)}
+        />
+      )}
+
       <SpellDetailDialog spell={detailSpell} onClose={() => setDetailSpell(null)} />
       <Toast toast={toast} onDismiss={() => setToast(null)} />
 
-      <PrintSheet cards={queueCards} />
+      <PrintSheet cards={queueCards} globalLayout={globalLayout} />
     </div>
   );
 }

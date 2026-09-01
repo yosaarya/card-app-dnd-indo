@@ -16,7 +16,11 @@ const APP_STEPS = [
   ],
   [
     'Pasang gambar (opsional)',
-    'Seret berkas gambar ke atas kartu, atau tekan tombol unggah di bawah kartu. Gambar otomatis dipotong ke bentuk kartu dan disimpan di browser ini.',
+    'Seret berkas gambar ke atas kartu, atau tekan tombol unggah di bawah kartu. Gambar disimpan di browser ini.',
+  ],
+  [
+    'Atur tampilannya (opsional)',
+    'Tombol bergambar bingkai potong membuka pengatur posisi: seret gambarnya, perbesar, dan pilih tata letak Bingkai atau Full-art untuk kartu itu.',
   ],
   [
     'Masukkan ke antrean cetak',
@@ -33,6 +37,21 @@ const PRINT_SETTINGS = [
   ['Margin', 'None atau 0. Kalau tidak, kartu akan mengecil dan ukurannya meleset.'],
   ['Background graphics', 'Harus dicentang, kalau tidak latar gelap kartu tidak ikut tercetak.'],
   ['Scale / Skala', 'Biarkan 100%, jangan "Fit to page".'],
+];
+
+const LAYOUT_NOTES = [
+  [
+    'Bingkai',
+    'Gambar punya jendela sendiri dan teks aturan berada di atas latar solid. Paling terbaca, dan aman untuk semua spell.',
+  ],
+  [
+    'Full-art',
+    'Gambar memenuhi kartu dan teks menumpang di atasnya. Terlihat paling bagus pada spell berketerangan pendek — kartu yang langkahnya banyak akan tertutup kotak teks yang besar.',
+  ],
+  [
+    'Mengatur posisi gambar',
+    'Seret gambarnya di dalam pengatur, atau fokuskan kartunya lalu pakai tombol panah. Tanda + dan - mengatur perbesaran. Berguna untuk memindahkan bagian penting gambar ke area yang tidak tertutup teks.',
+  ],
 ];
 
 const CARD_PARTS = [
@@ -107,9 +126,16 @@ export default function GuideDialog({ open, onClose }) {
   const [tab, setTab] = useState('app');
   const closeRef = useRef(null);
 
+  // Fokus dipasang terpisah dari listener: onClose berganti identitas tiap
+  // render, jadi menggabungkannya membuat fokus direbut kembali ke tombol
+  // tutup setiap kali aplikasi merender ulang.
+  useEffect(() => {
+    if (open) closeRef.current?.focus();
+  }, [open]);
+
   useEffect(() => {
     if (!open) return undefined;
-    closeRef.current?.focus();
+
     const onKeyDown = (event) => {
       if (event.key === 'Escape') onClose();
     };
@@ -212,9 +238,14 @@ export default function GuideDialog({ open, onClose }) {
           )}
 
           {tab === 'card' && (
-            <Section title="Bagian-bagian kartu">
-              <DefinitionList items={CARD_PARTS} />
-            </Section>
+            <>
+              <Section title="Bagian-bagian kartu">
+                <DefinitionList items={CARD_PARTS} />
+              </Section>
+              <Section title="Dua pilihan tata letak">
+                <DefinitionList items={LAYOUT_NOTES} />
+              </Section>
+            </>
           )}
 
           {tab === 'terms' && (
