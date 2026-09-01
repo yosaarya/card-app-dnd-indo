@@ -6,8 +6,18 @@
  * kartu.
  */
 
+/*
+ * Di layar lembar ini dipindahkan ke luar viewport, bukan disembunyikan dengan
+ * display:none. Elemen ber-display:none tidak punya tata letak, sehingga
+ * lib/fitCards.js tidak bisa mengukur kartunya dan hasil cetak jadi meluap.
+ * Posisi fixed membuatnya tidak memengaruhi scroll halaman.
+ */
 .print-sheet {
-  display: none;
+  position: fixed;
+  top: 0;
+  left: -20000px;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @media print {
@@ -42,7 +52,9 @@
   }
 
   .print-sheet {
-    display: block;
+    position: static;
+    left: auto;
+    visibility: visible;
     background: #fff;
   }
 
@@ -50,11 +62,11 @@
     box-sizing: border-box;
     width: 210mm;
     height: 297mm;
-    padding: 6mm;
+    padding: 4mm;
     display: grid;
     grid-template-columns: repeat(3, 63mm);
     grid-auto-rows: 88mm;
-    gap: 4mm;
+    gap: 6mm; /* cukup untuk tanda potong 2mm di kedua sisi */
     justify-content: center;
     align-content: start;
     break-after: page;
@@ -67,26 +79,44 @@
   }
 
   .print-slot {
+    position: relative;
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
+  /* Tanda potong di keempat sudut kartu. Garisnya berada di luar badan kartu
+     dan sejajar tepinya, jadi memotong lurus di antara dua tanda menghasilkan
+     kartu 63 x 88 mm yang persis. */
+  .print-slot::before,
+  .print-slot::after {
+    content: '';
+    position: absolute;
+    inset: -2mm;
+    pointer-events: none;
+  }
+
+  .print-slot::before {
+    border-top: 0.15mm solid #94a3b8;
+    border-bottom: 0.15mm solid #94a3b8;
+    /* Hanya sisakan potongan garis di dekat sudut, bagian tengah dikosongkan. */
+    -webkit-mask-image: linear-gradient(to right, #000 0 2mm, transparent 2mm calc(100% - 2mm), #000 calc(100% - 2mm) 100%);
+    mask-image: linear-gradient(to right, #000 0 2mm, transparent 2mm calc(100% - 2mm), #000 calc(100% - 2mm) 100%);
+  }
+
+  .print-slot::after {
+    border-left: 0.15mm solid #94a3b8;
+    border-right: 0.15mm solid #94a3b8;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0 2mm, transparent 2mm calc(100% - 2mm), #000 calc(100% - 2mm) 100%);
+    mask-image: linear-gradient(to bottom, #000 0 2mm, transparent 2mm calc(100% - 2mm), #000 calc(100% - 2mm) 100%);
+  }
+
   /* Ukuran kartu berpindah dari piksel layar ke milimeter kertas.
-     240px : 10px = 63mm : 2.625mm, jadi proporsinya tetap sama. */
+     240px : 10px = 63mm : 2.625mm, jadi proporsinya tetap sama dan pengali
+     --sc-fit hasil pengukuran di layar tetap berlaku di sini. */
   .print-page .sc-card {
     --sc-w: 63mm;
     --sc-h: 88mm;
-    --sc-base: 2.625mm;
-    border: 0.3mm solid #0f172a;
+    --sc-unit: 2.625mm;
     border-radius: 3mm;
-    box-shadow: none;
-  }
-
-  .print-page .sc-card[data-density='dense'] {
-    --sc-base: 2.36mm;
-  }
-
-  .print-page .sc-card[data-density='packed'] {
-    --sc-base: 2.1mm;
   }
 }

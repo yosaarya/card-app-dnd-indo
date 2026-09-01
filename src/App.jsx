@@ -1,12 +1,14 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { Printer, Sparkles } from 'lucide-react';
+import { BookOpen, Printer, Sparkles } from 'lucide-react';
 
 import rawSpells from './data/spells-card.json';
 import { normalizeSpells, filterSpells } from './lib/spells';
 import { loadArtwork, saveArtwork } from './lib/storage';
 import { prepareArtwork } from './lib/image';
+import { useFitCards } from './hooks/useFitCards';
 
 import FilterPanel from './components/FilterPanel';
+import GuideDialog from './components/GuideDialog';
 import PrintQueue from './components/PrintQueue';
 import PrintSheet from './components/PrintSheet';
 import SpellDetailDialog from './components/SpellDetailDialog';
@@ -42,6 +44,7 @@ export default function App() {
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const [detailSpell, setDetailSpell] = useState(null);
   const [queueOpen, setQueueOpen] = useState(false);
+  const [guideOpen, setGuideOpen] = useState(false);
   const [toast, setToast] = useState(null);
 
   const notify = useCallback((message, tone = 'success') => {
@@ -54,6 +57,9 @@ export default function App() {
   );
 
   const visibleSpells = useMemo(() => filterSpells(spells, filters), [spells, filters]);
+
+  // Ukuran teks tiap kartu diukur ulang setiap daftar yang tampil berubah.
+  const gridRef = useFitCards(visibleSpells);
 
   const counts = useMemo(() => {
     const map = new Map();
@@ -144,7 +150,17 @@ export default function App() {
             </div>
           </div>
 
-          <button
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setGuideOpen(true)}
+              className="flex items-center gap-2 rounded-xl border border-slate-700 px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-slate-300 hover:bg-slate-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400"
+            >
+              <BookOpen size={16} aria-hidden="true" />
+              <span className="hidden sm:inline">Panduan</span>
+            </button>
+
+            <button
             type="button"
             onClick={() => setQueueOpen(true)}
             className="flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-xs font-black uppercase tracking-wider text-white hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
@@ -152,7 +168,8 @@ export default function App() {
             <Printer size={16} aria-hidden="true" />
             <span className="hidden sm:inline">Antrean</span>
             <span className="rounded-full bg-slate-950/40 px-2 py-0.5 tabular-nums">{queue.length}</span>
-          </button>
+            </button>
+          </div>
         </div>
       </header>
 
@@ -172,7 +189,10 @@ export default function App() {
               <p className="mt-1 text-sm">Coba ubah kata kunci atau longgarkan filternya.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <div
+              ref={gridRef}
+              className="grid grid-cols-1 justify-items-center gap-6 sm:grid-cols-2 xl:grid-cols-3"
+            >
               {visibleSpells.map((spell) => (
                 <SpellTile
                   key={spell.id}
@@ -197,7 +217,13 @@ export default function App() {
         onRemoveAt={handleRemoveAt}
         onClear={() => setQueue([])}
         onPrint={handlePrint}
+        onOpenGuide={() => {
+          setQueueOpen(false);
+          setGuideOpen(true);
+        }}
       />
+
+      <GuideDialog open={guideOpen} onClose={() => setGuideOpen(false)} />
 
       <SpellDetailDialog spell={detailSpell} onClose={() => setDetailSpell(null)} />
       <Toast toast={toast} onDismiss={() => setToast(null)} />

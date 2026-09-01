@@ -1,14 +1,23 @@
 # DnD Spellcard Generator
 
 Aplikasi web untuk membuat dan mencetak kartu spell D&D 5e (SRD) berukuran
-kartu permainan standar **63 × 88 mm**, lengkap dengan artwork sendiri.
+kartu permainan standar **63 × 88 mm**, ditujukan untuk pemain yang baru
+belajar D&D.
 
+- Kartu bergaya TCG: bilah judul dengan level, jendela artwork, baris school
+  dan class, kotak aturan, lalu bilah kaki berisi waktu, jarak, durasi, dan
+  kebutuhan merapal.
+- Setiap kartu memuat **langkah "cara pakai"** berbahasa Indonesia yang
+  diturunkan dari data spell — dari menghabiskan aksi, memilih sasaran,
+  lemparan dadu yang dipakai, sampai efek dan cara menjaganya.
 - Menelusuri 319 spell SRD dengan pencarian teks penuh serta filter school,
   level, dan class.
 - Menempelkan artwork lewat drag & drop atau pemilih berkas; gambar otomatis
   dipotong ke rasio kartu, dikompres, lalu disimpan di browser.
 - Menyusun antrean cetak (boleh rangkap) dan mencetaknya sebagai lembar A4
-  berisi 3 × 3 kartu, siap dipotong.
+  berisi 3 × 3 kartu lengkap dengan tanda potong.
+- Tombol **Panduan** berisi cara memakai aplikasi, pengaturan cetak,
+  penjelasan bagian-bagian kartu, dan glosarium istilah D&D.
 
 ## Menjalankan
 
@@ -28,7 +37,9 @@ Di dialog cetak browser:
 - margin **None / 0**;
 - aktifkan **Background graphics** agar latar gelap kartu ikut tercetak.
 
-Setiap halaman memuat 9 kartu berukuran tepat 63 × 88 mm.
+Setiap halaman memuat 9 kartu berukuran tepat 63 × 88 mm, dengan tanda potong
+di keempat sudutnya. Pengaturan ini juga tersedia di dalam aplikasi lewat
+tombol Panduan → tab Cetak.
 
 ## Struktur
 
@@ -36,20 +47,26 @@ Setiap halaman memuat 9 kartu berukuran tepat 63 × 88 mm.
 src/
   App.jsx                 komposisi state aplikasi
   components/
-    SpellCard.jsx         satu kartu; dipakai layar maupun cetak
+    SpellCard.jsx         satu kartu TCG; dipakai layar maupun cetak
     SpellTile.jsx         kartu + kontrol di grid
     FilterPanel.jsx       pencarian dan filter
     PrintQueue.jsx        panel antrean cetak
     PrintSheet.jsx        paginasi antrean menjadi halaman A4
-    SpellDetailDialog.jsx deskripsi SRD lengkap
+    SpellDetailDialog.jsx keterangan lengkap satu spell
+    GuideDialog.jsx       panduan aplikasi, cetak, dan glosarium
     Toast.jsx             notifikasi singkat
+  hooks/
+    useFitCards.js        memicu pengukuran ulang ukuran teks kartu
   lib/
     spells.js             normalisasi data, filter, urutan
+    howto.js              menyusun langkah "cara pakai" dari data spell
+    id.js                 pengalihbahasaan istilah D&D ke Indonesia
+    fitCards.js           menurunkan ukuran teks kartu sampai isinya muat
     storage.js            localStorage yang tahan gagal
     image.js              pemotongan & kompresi artwork
     schools.js            warna aksen per school
-  styles/card.css         tata letak kartu (dipakai layar & cetak)
-  print.css               lembar A4
+  styles/card.css         bingkai kartu (dipakai layar & cetak)
+  print.css               lembar A4 dan tanda potong
   data/
     spells-raw.json       hasil unduhan dnd5eapi.co
     spells-card.json      data siap kartu (dipakai aplikasi)
@@ -59,8 +76,14 @@ scripts/
 ```
 
 Kartu di layar dan kartu di kertas memakai komponen serta CSS yang sama;
-yang berbeda hanya satuan ukurannya (piksel vs milimeter), sehingga
-pratinjau di layar sesuai dengan hasil cetak.
+yang berbeda hanya satuan ukurannya (`--sc-unit`: 10 px vs 2,625 mm),
+sehingga pratinjau di layar sesuai dengan hasil cetak.
+
+Panjang teks tiap spell sangat berbeda, jadi satu ukuran font tidak mungkin
+pas untuk 319 kartu. `lib/fitCards.js` mengukur langsung dari DOM dan
+menurunkan pengali `--sc-fit` tiap kartu sampai isinya muat. Karena yang
+disetel pengali dan bukan ukuran mutlak, hasil pengukuran di layar tetap
+berlaku saat dicetak.
 
 ## Memperbarui data spell
 
@@ -78,3 +101,10 @@ npm run data:cards    # turunkan ringkasan kartu -> src/data/spells-card.json
   artwork tersebut hanya bertahan sampai halaman ditutup.
 - Konten spell berasal dari SRD 5.1 (Wizards of the Coast, CC-BY-4.0)
   melalui [dnd5eapi.co](https://www.dnd5eapi.co).
+- Nama school, class, dan istilah baku D&D (Save, DEX, Charmed, Beast,
+  Disadvantage) sengaja dibiarkan dalam bahasa Inggris karena itulah yang
+  tertulis di lembar karakter dan stat block monster. Semuanya dijelaskan di
+  glosarium panduan.
+- Deskripsi resmi SRD di dialog detail masih berbahasa Inggris dan ditandai
+  sebagai teks asli; keterangan yang dipakai bermain sudah berbahasa
+  Indonesia seluruhnya.

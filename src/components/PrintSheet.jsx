@@ -1,5 +1,6 @@
 import React from 'react';
 import SpellCard from './SpellCard';
+import { useFitCards } from '../hooks/useFitCards';
 
 const CARDS_PER_PAGE = 9; // grid 3 x 3 pada A4
 
@@ -16,8 +17,10 @@ function paginate(cards) {
  * mencetak (lihat print.css); di layar elemen ini disembunyikan.
  */
 export default function PrintSheet({ cards }) {
+  const sheetRef = useFitCards(cards);
+
   return (
-    <div className="print-sheet" aria-hidden="true">
+    <div className="print-sheet" ref={sheetRef} aria-hidden="true">
       {paginate(cards).map((page, pageIndex) => (
         <div className="print-page" key={`page-${pageIndex}`}>
           {page.map((card) => (

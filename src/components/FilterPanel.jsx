@@ -1,6 +1,7 @@
 import React from 'react';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 import { SCHOOLS, CLASSES, LEVEL_OPTIONS, SORTS } from '../lib/spells';
+import { SCHOOL_ID, CLASS_ID } from '../lib/id';
 
 const FIELD_CLASS =
   'w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-100 ' +
@@ -58,7 +59,7 @@ export default function FilterPanel({ filters, onChange, onReset, resultCount, t
             <option value="All">Semua school</option>
             {SCHOOLS.map((school) => (
               <option key={school} value={school}>
-                {school}
+                {school} — {SCHOOL_ID[school].name}
               </option>
             ))}
           </select>
@@ -80,7 +81,7 @@ export default function FilterPanel({ filters, onChange, onReset, resultCount, t
             <option value="All">Semua class</option>
             {CLASSES.map((klass) => (
               <option key={klass} value={klass}>
-                {klass}
+                {klass} — {CLASS_ID[klass]}
               </option>
             ))}
           </select>

@@ -76,16 +76,14 @@ export function buildEffectLines(cardData = {}) {
   return lines;
 }
 
-/** Tag ringkas yang layak dipajang di kartu (concentration, ritual, save, dst). */
+/** Tag ringkas yang layak dipajang di kartu. */
 export function buildTags(spell) {
   const data = spell.cardData;
   const tags = [];
 
-  if (data.concentration) tags.push({ text: 'Concentration', tone: 'warn' });
+  if (data.concentration) tags.push({ text: 'Konsentrasi', tone: 'warn' });
   if (data.ritual) tags.push({ text: 'Ritual', tone: 'info' });
-  if (data.save) tags.push({ text: `${data.save} Save`, tone: 'danger' });
-  if (data.attack_roll) tags.push({ text: 'Attack Roll', tone: 'danger' });
-  if (data.material_cost) tags.push({ text: 'Material $', tone: 'info' });
+  if (data.material_cost) tags.push({ text: 'Bahan habis pakai', tone: 'info' });
 
   return tags;
 }

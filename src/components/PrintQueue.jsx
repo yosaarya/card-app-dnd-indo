@@ -1,12 +1,12 @@
 import React from 'react';
-import { Printer, Trash2, X } from 'lucide-react';
+import { HelpCircle, Printer, Trash2, X } from 'lucide-react';
 import { shortLevel } from '../lib/spells';
 import { schoolAccent } from '../lib/schools';
 
 const CARDS_PER_PAGE = 9;
 
 /** Panel antrean cetak: daftar kartu terpilih, hapus per item, dan tombol cetak. */
-export default function PrintQueue({ open, cards, onClose, onRemoveAt, onClear, onPrint }) {
+export default function PrintQueue({ open, cards, onClose, onRemoveAt, onClear, onPrint, onOpenGuide }) {
   if (!open) return null;
 
   const pages = Math.ceil(cards.length / CARDS_PER_PAGE);
@@ -77,6 +77,33 @@ export default function PrintQueue({ open, cards, onClose, onRemoveAt, onClear, 
         </div>
 
         <footer className="space-y-2 border-t border-slate-800 p-3">
+          {/* Salah satu dari tiga setelan ini keliru = hasil cetak meleset
+              ukurannya atau kehilangan latar gelap kartu. */}
+          <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2.5">
+            <p className="mb-1.5 text-[10px] font-black uppercase tracking-widest text-purple-300">
+              Setel dulu di dialog cetak
+            </p>
+            <ul className="space-y-0.5 text-[11px] leading-relaxed text-slate-400">
+              <li>
+                Kertas <span className="font-semibold text-slate-200">A4</span>, tegak
+              </li>
+              <li>
+                Margin <span className="font-semibold text-slate-200">None / 0</span>
+              </li>
+              <li>
+                <span className="font-semibold text-slate-200">Background graphics</span> dicentang
+              </li>
+            </ul>
+            <button
+              type="button"
+              onClick={onOpenGuide}
+              className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-semibold text-purple-300 hover:text-purple-200 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded"
+            >
+              <HelpCircle size={12} aria-hidden="true" />
+              Panduan cetak lengkap
+            </button>
+          </div>
+
           <button
             type="button"
             onClick={onPrint}
