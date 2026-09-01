@@ -1,12 +1,42 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { X } from 'lucide-react';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import { SCHOOL_ID, CLASS_ID, DAMAGE_TYPE_PAIRS } from '../lib/id';
+import { ringkasanWaktuMerapal, ringkasanDurasi, hitungKonsentrasi, hitungRitual } from '../lib/timing';
 
 const TABS = [
   { id: 'app', label: 'Pakai aplikasi' },
   { id: 'print', label: 'Cetak' },
   { id: 'card', label: 'Baca kartu' },
+  { id: 'time', label: 'Waktu' },
   { id: 'terms', label: 'Istilah' },
+];
+
+const SATUAN_PERTEMPURAN = [
+  [
+    'Ronde',
+    'Satu putaran giliran untuk semua orang di pertempuran. Lamanya 6 detik di dunia cerita, jadi 10 ronde = 1 menit.',
+  ],
+  [
+    'Giliran',
+    'Bagianmu di dalam sebuah ronde. Satu giliran berisi satu aksi, satu aksi bonus, dan gerakan — masing-masing sekali.',
+  ],
+  ['Aksi', 'Jatah utama giliranmu. Sebagian besar spell memakai ini, dan hanya satu aksi per giliran.'],
+  [
+    'Aksi bonus',
+    'Jatah tambahan yang hanya bisa dipakai kalau ada sesuatu yang memberikannya. Tidak bisa dipakai untuk aksi biasa.',
+  ],
+  ['Reaksi', 'Respons di luar giliranmu, satu kali per ronde, dan hanya saat pemicunya terjadi.'],
+];
+
+const CATATAN_DURASI = [
+  ['Seketika', 'Efeknya terjadi lalu selesai. Damage dan penyembuhan hampir selalu begini.'],
+  [
+    'Maks. sekian',
+    'Bertahan paling lama segitu, tapi kamu boleh menghentikannya lebih awal. Hampir semuanya juga menuntut konsentrasi.',
+  ],
+  ['Durasi tetap', 'Bertahan penuh selama waktu yang tertulis, tidak bisa dihentikan sesukamu.'],
+  ['Sampai dibubarkan', 'Bertahan terus sampai ada yang membubarkannya, misalnya dengan Dispel Magic.'],
 ];
 
 const APP_STEPS = [
@@ -122,9 +152,24 @@ function DefinitionList({ items }) {
 }
 
 /** Panduan pemakaian, sengaja disembunyikan di balik tombol agar tidak mengganggu. */
-export default function GuideDialog({ open, onClose }) {
+export default function GuideDialog({ open, onClose, spells }) {
   const [tab, setTab] = useState('app');
   const closeRef = useRef(null);
+
+  useBodyScrollLock(open);
+
+  // Dihitung dari data, bukan ditulis tangan, supaya panduan tidak pernah
+  // berbeda dari isi aplikasi setelah datanya diperbarui.
+  const { waktuMerapal, durasi, konsentrasi, ritual, totalSpell } = useMemo(
+    () => ({
+      waktuMerapal: ringkasanWaktuMerapal(spells),
+      durasi: ringkasanDurasi(spells),
+      konsentrasi: hitungKonsentrasi(spells),
+      ritual: hitungRitual(spells),
+      totalSpell: spells.length,
+    }),
+    [spells],
+  );
 
   // Fokus dipasang terpisah dari listener: onClose berganti identitas tiap
   // render, jadi menggabungkannya membuat fokus direbut kembali ke tombol
@@ -157,7 +202,7 @@ export default function GuideDialog({ open, onClose }) {
         className="flex max-h-[88vh] w-full max-w-2xl flex-col rounded-2xl border border-slate-700 bg-slate-900 shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
-        <header className="flex items-start justify-between gap-4 border-b border-slate-800 p-5 pb-4">
+        <header className="flex flex-none items-start justify-between gap-4 border-b border-slate-800 p-5 pb-4">
           <div>
             <h2 id="guide-title" className="text-lg font-black uppercase tracking-wide">
               Panduan
@@ -177,7 +222,10 @@ export default function GuideDialog({ open, onClose }) {
           </button>
         </header>
 
-        <div className="flex gap-1 overflow-x-auto border-b border-slate-800 px-5 py-2" role="tablist">
+        <div
+          className="flex flex-none gap-1 overflow-x-auto border-b border-slate-800 px-5 py-2"
+          role="tablist"
+        >
           {TABS.map((item) => (
             <button
               key={item.id}
@@ -244,6 +292,75 @@ export default function GuideDialog({ open, onClose }) {
               </Section>
               <Section title="Dua pilihan tata letak">
                 <DefinitionList items={LAYOUT_NOTES} />
+              </Section>
+            </>
+          )}
+
+          {tab === 'time' && (
+            <>
+              <Section title="Waktu di dalam pertempuran">
+                <DefinitionList items={SATUAN_PERTEMPURAN} />
+              </Section>
+
+              <Section title="Berapa lama merapalnya">
+                <p className="mb-2 text-sm leading-relaxed text-slate-400">
+                  Angka di bawah dihitung dari {totalSpell} spell yang ada di aplikasi ini.
+                </p>
+                <ul className="space-y-1.5">
+                  {waktuMerapal.map((baris) => (
+                    <li
+                      key={baris.label}
+                      className="flex items-baseline gap-3 rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2 text-sm"
+                    >
+                      <span className="w-10 shrink-0 text-right font-bold tabular-nums text-purple-300">
+                        {baris.jumlah}
+                      </span>
+                      <span className="font-semibold text-slate-200">{baris.label}</span>
+                      {baris.diLuarPertempuran && (
+                        <span className="ml-auto text-[11px] uppercase tracking-wider text-amber-400">
+                          di luar pertempuran
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">
+                  Yang bertanda <span className="font-semibold text-amber-400">di luar pertempuran</span>{' '}
+                  butuh satu menit atau lebih. Satu ronde hanya 6 detik, jadi spell seperti itu tidak mungkin
+                  dirapal di tengah perkelahian — pakai saat menyusun rencana atau beristirahat.
+                </p>
+              </Section>
+
+              <Section title="Berapa lama efeknya bertahan">
+                <DefinitionList items={CATATAN_DURASI} />
+                <ul className="mt-2 grid grid-cols-2 gap-2 text-sm">
+                  {[
+                    ['Seketika', durasi.seketika],
+                    ['Maks. sekian', durasi.maksimal],
+                    ['Durasi tetap', durasi.tetap],
+                    ['Sampai dibubarkan', durasi.sampaiDibubarkan],
+                  ].map(([label, jumlah]) => (
+                    <li key={label} className="rounded-lg border border-slate-800 bg-slate-950/60 px-3 py-2">
+                      <span className="block font-bold tabular-nums text-purple-300">{jumlah}</span>
+                      <span className="text-xs text-slate-400">{label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Section>
+
+              <Section title="Dua hal yang paling sering bikin bingung">
+                <DefinitionList
+                  items={[
+                    [
+                      `Konsentrasi (${konsentrasi} spell)`,
+                      'Hanya satu spell konsentrasi yang boleh aktif. Merapal yang kedua langsung membatalkan yang pertama. Kena damage berarti lempar save CON dengan DC 10 atau separuh damage yang diterima, ambil yang lebih besar.',
+                    ],
+                    [
+                      `Ritual (${ritual} spell)`,
+                      'Boleh dirapal tanpa memakai spell slot, tapi butuh tambahan 10 menit. Berarti hanya bisa di luar pertempuran — tapi gratis, jadi pakai kalau tidak sedang buru-buru.',
+                    ],
+                  ]}
+                />
               </Section>
             </>
           )}

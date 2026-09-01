@@ -1,5 +1,6 @@
 import React from 'react';
 import { HelpCircle, Printer, Trash2, X } from 'lucide-react';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import { shortLevel } from '../lib/spells';
 import { schoolAccent } from '../lib/schools';
 
@@ -7,6 +8,8 @@ const CARDS_PER_PAGE = 9;
 
 /** Panel antrean cetak: daftar kartu terpilih, hapus per item, dan tombol cetak. */
 export default function PrintQueue({ open, cards, onClose, onRemoveAt, onClear, onPrint, onOpenGuide }) {
+  useBodyScrollLock(open);
+
   if (!open) return null;
 
   const pages = Math.ceil(cards.length / CARDS_PER_PAGE);
@@ -20,7 +23,7 @@ export default function PrintQueue({ open, cards, onClose, onRemoveAt, onClear, 
         className="flex h-full w-full max-w-sm flex-col border-l border-slate-800 bg-slate-950 shadow-2xl"
         onClick={(event) => event.stopPropagation()}
       >
-        <header className="flex items-center justify-between border-b border-slate-800 px-4 py-3">
+        <header className="flex flex-none items-center justify-between border-b border-slate-800 px-4 py-3">
           <div>
             <h2 className="text-sm font-black uppercase tracking-wider">Antrean cetak</h2>
             <p className="text-xs text-slate-400">
@@ -78,7 +81,7 @@ export default function PrintQueue({ open, cards, onClose, onRemoveAt, onClear, 
           )}
         </div>
 
-        <footer className="space-y-2 border-t border-slate-800 p-3">
+        <footer className="flex-none space-y-2 border-t border-slate-800 p-3">
           {/* Salah satu dari tiga setelan ini keliru = hasil cetak meleset
               ukurannya atau kehilangan latar gelap kartu. */}
           <div className="rounded-lg border border-slate-800 bg-slate-900/60 p-2.5">

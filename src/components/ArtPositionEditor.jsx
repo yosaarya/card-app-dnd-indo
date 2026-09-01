@@ -1,7 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { RotateCcw, X, ZoomIn, ZoomOut } from 'lucide-react';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import SpellCard from './SpellCard';
-import { clampTransform, layoutFor, LAYOUTS, ZOOM_MAX, ZOOM_MIN } from '../lib/artwork';
+import { fitCards } from '../lib/fitCards';
+import { clampTransform, layoutFor, sumbuBisaDigeser, LAYOUTS, ZOOM_MAX, ZOOM_MIN } from '../lib/artwork';
 
 const ZOOM_STEP = 0.1;
 const NUDGE = 2; // persen per tekan tombol panah
@@ -18,12 +20,72 @@ const NUDGE = 2; // persen per tekan tombol panah
  */
 export default function ArtPositionEditor({ spell, entry, globalLayout, onChange, onReset, onClose }) {
   const [dragging, setDragging] = useState(false);
+  const [ukuranGambar, setUkuranGambar] = useState(null);
+  const [ukuranJendela, setUkuranJendela] = useState(null);
   const surfaceRef = useRef(null);
   const dragRef = useRef(null);
   const closeRef = useRef(null);
 
+  useBodyScrollLock(true);
+
   const transform = clampTransform(entry);
   const layout = layoutFor(entry, globalLayout);
+
+  // Ukuran asli gambar dan ukuran jendela kartu dipakai untuk tahu sumbu mana
+  // yang benar-benar punya sisa untuk digeser.
+  useEffect(() => {
+    const src = entry?.art;
+    if (!src) return undefined;
+
+    let batal = false;
+    const img = new Image();
+    // Hasilnya dicap dengan sumbernya, jadi ukuran dari gambar sebelumnya
+    // tidak akan terpakai kalau artworknya keburu diganti.
+    img.onload = () => {
+      if (!batal) setUkuranGambar({ src, w: img.naturalWidth, h: img.naturalHeight });
+    };
+    img.src = src;
+
+    return () => {
+      batal = true;
+    };
+  }, [entry?.art]);
+
+  // ResizeObserver, bukan pengukuran langsung di dalam efek: jendela gambar
+  // berubah tinggi saat tata letaknya diganti, dan langganan seperti ini juga
+  // menghindari setState serentak di badan efek.
+  useEffect(() => {
+    const jendela = surfaceRef.current?.querySelector('.sc-window');
+    if (!jendela) return undefined;
+
+    const pengamat = new ResizeObserver(([entri]) => {
+      const { width, height } = entri.contentRect;
+      setUkuranJendela({ w: width, h: height });
+    });
+    pengamat.observe(jendela);
+
+    return () => pengamat.disconnect();
+  }, [layout, entry?.art]);
+
+  // Pratinjau di sini harus melewati penyesuaian ukuran teks yang sama dengan
+  // grid dan lembar cetak; tanpa itu teksnya terpotong dan pratinjaunya
+  // berbohong soal hasil cetak.
+  useLayoutEffect(() => {
+    fitCards(surfaceRef.current);
+  }, [layout, spell.id]);
+
+  const gambar = ukuranGambar?.src === entry?.art ? ukuranGambar : null;
+
+  const bisaDigeser =
+    gambar && ukuranJendela
+      ? sumbuBisaDigeser({
+          imgW: gambar.w,
+          imgH: gambar.h,
+          boxW: ukuranJendela.w,
+          boxH: ukuranJendela.h,
+          zoom: transform.zoom,
+        })
+      : { x: false, y: false };
 
   const apply = useCallback(
     (patch) => onChange(clampTransform({ ...transform, ...patch })),
@@ -136,7 +198,10 @@ export default function ArtPositionEditor({ spell, entry, globalLayout, onChange
             onPointerUp={endDrag}
             onPointerCancel={endDrag}
             onKeyDown={onKeyDownSurface}
-            className={`rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-400 ${
+            /* Menggeser di atas kartu akan menyeleksi teksnya kalau tidak
+               dicegah, sehingga geseran terasa tersendat. */
+            onDragStart={(event) => event.preventDefault()}
+            className={`select-none rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-400 ${
               entry?.art ? (dragging ? 'cursor-grabbing' : 'cursor-grab') : 'cursor-default'
             }`}
             style={{ touchAction: 'none' }}
@@ -149,10 +214,18 @@ export default function ArtPositionEditor({ spell, entry, globalLayout, onChange
           </div>
         </div>
 
-        {!entry?.art && (
+        {!entry?.art ? (
           <p className="mt-3 text-center text-xs text-slate-500">
             Belum ada gambar. Pasang artwork dulu untuk bisa mengatur posisinya.
           </p>
+        ) : (
+          !(bisaDigeser.x && bisaDigeser.y) && (
+            <p className="mt-3 text-center text-xs leading-relaxed text-amber-400/90">
+              {bisaDigeser.x || bisaDigeser.y
+                ? `Gambar ini hanya bisa digeser ${bisaDigeser.x ? 'mendatar' : 'naik-turun'} pada perbesaran ini. Perbesar untuk menggeser ke arah satunya.`
+                : 'Gambar ini pas seukuran kartu, jadi belum ada yang bisa digeser. Perbesar dulu.'}
+            </p>
+          )
         )}
 
         <div className="mt-5 space-y-4">

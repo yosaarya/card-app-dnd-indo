@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
+import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import { formatLevel } from '../lib/spells';
 import { buildHowTo, buildNotes } from '../lib/howto';
 import { castingTimeID, durationID, rangeID, componentsLongID, SCHOOL_ID, CLASS_ID } from '../lib/id';
@@ -22,6 +23,8 @@ function Row({ label, children }) {
 /** Keterangan lengkap: langkah versi panjang, catatan, lalu teks asli SRD. */
 export default function SpellDetailDialog({ spell, onClose }) {
   const closeRef = useRef(null);
+
+  useBodyScrollLock(Boolean(spell));
   // Hanya id-nya yang jadi dependensi: objek spell berganti identitas tiap kali
   // artwork berubah, dan itu bukan alasan untuk memindahkan fokus.
   const spellId = spell?.id;
