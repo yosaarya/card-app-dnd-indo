@@ -17,16 +17,7 @@ export const SCHOOLS = [
   'Transmutation',
 ];
 
-export const CLASSES = [
-  'Bard',
-  'Cleric',
-  'Druid',
-  'Paladin',
-  'Ranger',
-  'Sorcerer',
-  'Warlock',
-  'Wizard',
-];
+export const CLASSES = ['Bard', 'Cleric', 'Druid', 'Paladin', 'Ranger', 'Sorcerer', 'Warlock', 'Wizard'];
 
 const ORDINALS = ['Cantrip', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th'];
 
@@ -165,7 +156,8 @@ export function filterSpells(spells, { query, school, level, klass, sort }) {
   // Pencarian menjangkau deskripsi resmi juga, jadi mencari "fireball" bisa
   // memunculkan spell lain yang menyebut Fireball. Cocok-nama didahulukan
   // supaya spell yang benar-benar dicari selalu berada di baris pertama.
-  const rank = (spell) => (spell.name.toLowerCase().startsWith(needle) ? 0 : spell.name.toLowerCase().includes(needle) ? 1 : 2);
+  const rank = (spell) =>
+    spell.name.toLowerCase().startsWith(needle) ? 0 : spell.name.toLowerCase().includes(needle) ? 1 : 2;
 
   return result.sort((a, b) => rank(a) - rank(b) || compare(a, b));
 }

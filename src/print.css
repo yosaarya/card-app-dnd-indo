@@ -99,15 +99,35 @@
     border-top: 0.15mm solid #94a3b8;
     border-bottom: 0.15mm solid #94a3b8;
     /* Hanya sisakan potongan garis di dekat sudut, bagian tengah dikosongkan. */
-    -webkit-mask-image: linear-gradient(to right, #000 0 2mm, transparent 2mm calc(100% - 2mm), #000 calc(100% - 2mm) 100%);
-    mask-image: linear-gradient(to right, #000 0 2mm, transparent 2mm calc(100% - 2mm), #000 calc(100% - 2mm) 100%);
+    -webkit-mask-image: linear-gradient(
+      to right,
+      #000 0 2mm,
+      transparent 2mm calc(100% - 2mm),
+      #000 calc(100% - 2mm) 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      #000 0 2mm,
+      transparent 2mm calc(100% - 2mm),
+      #000 calc(100% - 2mm) 100%
+    );
   }
 
   .print-slot::after {
     border-left: 0.15mm solid #94a3b8;
     border-right: 0.15mm solid #94a3b8;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0 2mm, transparent 2mm calc(100% - 2mm), #000 calc(100% - 2mm) 100%);
-    mask-image: linear-gradient(to bottom, #000 0 2mm, transparent 2mm calc(100% - 2mm), #000 calc(100% - 2mm) 100%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0 2mm,
+      transparent 2mm calc(100% - 2mm),
+      #000 calc(100% - 2mm) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      #000 0 2mm,
+      transparent 2mm calc(100% - 2mm),
+      #000 calc(100% - 2mm) 100%
+    );
   }
 
   /* Ukuran kartu berpindah dari piksel layar ke milimeter kertas.

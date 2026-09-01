@@ -60,13 +60,7 @@ export async function prepareArtwork(file) {
   const drawWidth = img.width * scale;
   const drawHeight = img.height * scale;
   ctx.imageSmoothingQuality = 'high';
-  ctx.drawImage(
-    img,
-    (TARGET_WIDTH - drawWidth) / 2,
-    (TARGET_HEIGHT - drawHeight) / 2,
-    drawWidth,
-    drawHeight,
-  );
+  ctx.drawImage(img, (TARGET_WIDTH - drawWidth) / 2, (TARGET_HEIGHT - drawHeight) / 2, drawWidth, drawHeight);
 
   return canvas.toDataURL('image/jpeg', JPEG_QUALITY);
 }

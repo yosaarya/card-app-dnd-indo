@@ -161,13 +161,13 @@ export default function App() {
             </button>
 
             <button
-            type="button"
-            onClick={() => setQueueOpen(true)}
-            className="flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-xs font-black uppercase tracking-wider text-white hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
-          >
-            <Printer size={16} aria-hidden="true" />
-            <span className="hidden sm:inline">Antrean</span>
-            <span className="rounded-full bg-slate-950/40 px-2 py-0.5 tabular-nums">{queue.length}</span>
+              type="button"
+              onClick={() => setQueueOpen(true)}
+              className="flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-xs font-black uppercase tracking-wider text-white hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-400"
+            >
+              <Printer size={16} aria-hidden="true" />
+              <span className="hidden sm:inline">Antrean</span>
+              <span className="rounded-full bg-slate-950/40 px-2 py-0.5 tabular-nums">{queue.length}</span>
             </button>
           </div>
         </div>

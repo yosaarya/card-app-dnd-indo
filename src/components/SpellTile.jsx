@@ -12,7 +12,15 @@ const ICON_BUTTON =
  * Kontrol sengaja diletakkan di bawah kartu, bukan menumpang di atasnya:
  * kartu di layar harus tetap menjadi pratinjau persis dari hasil cetak.
  */
-export default function SpellTile({ spell, count, onAdd, onRemove, onArtwork, onClearArtwork, onShowDetail }) {
+export default function SpellTile({
+  spell,
+  count,
+  onAdd,
+  onRemove,
+  onArtwork,
+  onClearArtwork,
+  onShowDetail,
+}) {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
 

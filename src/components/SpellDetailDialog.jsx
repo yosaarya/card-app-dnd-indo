@@ -84,8 +84,9 @@ export default function SpellDetailDialog({ spell, onClose }) {
           <Row label="Jarak">{rangeID(spell.range)}</Row>
           <Row label="Durasi">{durationID(spell.duration)}</Row>
           <Row label="Class">
-            {spell.classes.map((klass) => `${klass}${CLASS_ID[klass] ? ` (${CLASS_ID[klass]})` : ''}`).join(', ') ||
-              '—'}
+            {spell.classes
+              .map((klass) => `${klass}${CLASS_ID[klass] ? ` (${CLASS_ID[klass]})` : ''}`)
+              .join(', ') || '—'}
           </Row>
         </dl>
 
@@ -104,7 +105,9 @@ export default function SpellDetailDialog({ spell, onClose }) {
         )}
 
         <div className="mt-4">
-          <h3 className="mb-2 text-[11px] font-black uppercase tracking-widest text-purple-300">Cara pakai</h3>
+          <h3 className="mb-2 text-[11px] font-black uppercase tracking-widest text-purple-300">
+            Cara pakai
+          </h3>
           <ol className="space-y-1.5">
             {steps.map((step, index) => (
               <li key={index} className="flex gap-2.5 text-sm leading-relaxed text-slate-300">

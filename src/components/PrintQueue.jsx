@@ -40,8 +40,8 @@ export default function PrintQueue({ open, cards, onClose, onRemoveAt, onClear, 
         <div className="flex-1 overflow-y-auto p-3">
           {cards.length === 0 ? (
             <p className="mt-10 text-center text-sm text-slate-500">
-              Belum ada kartu. Tekan tombol <span className="font-bold text-purple-300">+</span> pada kartu untuk
-              menambahkannya ke antrean.
+              Belum ada kartu. Tekan tombol <span className="font-bold text-purple-300">+</span> pada kartu
+              untuk menambahkannya ke antrean.
             </p>
           ) : (
             <ol className="space-y-1.5">
@@ -50,7 +50,9 @@ export default function PrintQueue({ open, cards, onClose, onRemoveAt, onClear, 
                   key={card.instanceId}
                   className="flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-2.5 py-2"
                 >
-                  <span className="w-5 shrink-0 text-right text-[11px] tabular-nums text-slate-500">{index + 1}</span>
+                  <span className="w-5 shrink-0 text-right text-[11px] tabular-nums text-slate-500">
+                    {index + 1}
+                  </span>
                   <span
                     className="h-6 w-1 shrink-0 rounded-full"
                     style={{ backgroundColor: schoolAccent(card.school) }}

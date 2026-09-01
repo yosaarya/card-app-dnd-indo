@@ -199,7 +199,7 @@ const HEALING = {
   '70 HP': '70 HP',
   '2d8': '2d8',
   '4d8 + 15': '4d8 + 15',
-  '1': '1',
+  1: '1',
 };
 
 const AOE_SHAPE = {
@@ -227,30 +227,40 @@ function replaceWords(text, dictionary) {
 
 /** "4d4 Acid (Instant)" -> "4d4 Asam (langsung)" */
 export function damageID(value) {
-  return replaceWords(replaceWords(value, DAMAGE_NOTE), DAMAGE_TYPE)
-    .replace(/\bper delayed turn\b/g, 'per giliran tertunda');
+  return replaceWords(replaceWords(value, DAMAGE_NOTE), DAMAGE_TYPE).replace(
+    /\bper delayed turn\b/g,
+    'per giliran tertunda',
+  );
 }
 
 export function healingID(value) {
   return HEALING[value] ?? replaceWords(value, { 'Spellcasting Modifier': 'modifier sihir' });
 }
 
-/** "20 ft Radius" -> "radius 20 kaki (4 kotak)" */
+/** "20 ft Radius" -> "radius 20 kaki" */
 export function aoeID(value) {
   if (!value) return '';
 
-  let text = replaceWords(value, AOE_SHAPE)
-    .replace(/(\d[\d,]*) sq ft/g, '$1 kaki persegi')
+  // "sq ft" adalah satuan luas, sedangkan "Square" adalah bentuk area — dua-duanya
+  // jadi kata "persegi" dalam bahasa Indonesia. Satuan luas disimpan sebagai
+  // penanda sementara supaya tidak ikut dibalik oleh aturan penyusunan bentuk.
+  const SATUAN_LUAS = '\uE000';
+
+  let text = value
+    .replace(/Radius Sphere/g, 'Radius') // "bola berjari-jari" cukup ditulis radius
+    .replace(/(\d[\d,]*) sq ft/g, `$1 ${SATUAN_LUAS}`)
     .replace(/(\d[\d,]*) ft/g, '$1 kaki')
     .replace(/(\d[\d,]*) miles?/g, '$1 mil');
 
-  // "radius 20 kaki" lebih enak dibaca daripada "20 kaki radius".
+  text = replaceWords(text, AOE_SHAPE);
+
+  // "20 kaki radius" -> "radius 20 kaki", lebih enak dibaca.
   text = text.replace(
-    /(\d[\d,]*(?:x\d+)* kaki(?: persegi)?) (radius|kubus|persegi|bola|kerucut|garis|silinder|dinding|cincin)/g,
+    /(\d[\d,]*(?:x\d+)* (?:kaki|mil)) (radius|kubus|persegi|bola|kerucut|garis|silinder|dinding|cincin)/g,
     '$2 $1',
   );
 
-  return text;
+  return text.replace(SATUAN_LUAS, 'kaki persegi');
 }
 
 /**

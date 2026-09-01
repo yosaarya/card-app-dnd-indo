@@ -23,10 +23,7 @@ function Field({ id, label, children }) {
 export default function FilterPanel({ filters, onChange, onReset, resultCount, totalCount }) {
   const set = (key) => (event) => onChange({ ...filters, [key]: event.target.value });
   const isFiltered =
-    filters.query !== '' ||
-    filters.school !== 'All' ||
-    filters.level !== 'All' ||
-    filters.klass !== 'All';
+    filters.query !== '' || filters.school !== 'All' || filters.level !== 'All' || filters.klass !== 'All';
 
   return (
     <aside className="w-full lg:w-72 lg:shrink-0 bg-slate-950/60 border border-slate-800 rounded-2xl p-4 h-fit lg:sticky lg:top-24">

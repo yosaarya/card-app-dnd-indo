@@ -30,9 +30,7 @@ export function loadArtwork() {
     // artwork pengguna lama tidak hilang.
     if (Array.isArray(parsed)) {
       return Object.fromEntries(
-        parsed
-          .filter((entry) => entry?.id && entry.customArt)
-          .map((entry) => [entry.id, entry.customArt]),
+        parsed.filter((entry) => entry?.id && entry.customArt).map((entry) => [entry.id, entry.customArt]),
       );
     }
 

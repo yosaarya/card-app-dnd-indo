@@ -10,10 +10,22 @@ const TABS = [
 ];
 
 const APP_STEPS = [
-  ['Cari spell yang kamu butuhkan', 'Ketik namanya di kotak Cari, atau saring lewat School, Level, dan Class. Kolom pencarian juga menelusuri isi deskripsi, jadi kata seperti "racun" atau "terbang" tetap ketemu.'],
-  ['Pasang gambar (opsional)', 'Seret berkas gambar ke atas kartu, atau tekan tombol unggah di bawah kartu. Gambar otomatis dipotong ke bentuk kartu dan disimpan di browser ini.'],
-  ['Masukkan ke antrean cetak', 'Tekan tombol + di bawah kartu. Tekan berkali-kali kalau kamu mau beberapa salinan kartu yang sama.'],
-  ['Cetak', 'Buka panel Antrean di kanan atas, periksa daftarnya, lalu tekan Cetak. Ikuti pengaturan di tab Cetak.'],
+  [
+    'Cari spell yang kamu butuhkan',
+    'Ketik namanya di kotak Cari, atau saring lewat School, Level, dan Class. Kolom pencarian juga menelusuri isi deskripsi, jadi kata seperti "racun" atau "terbang" tetap ketemu.',
+  ],
+  [
+    'Pasang gambar (opsional)',
+    'Seret berkas gambar ke atas kartu, atau tekan tombol unggah di bawah kartu. Gambar otomatis dipotong ke bentuk kartu dan disimpan di browser ini.',
+  ],
+  [
+    'Masukkan ke antrean cetak',
+    'Tekan tombol + di bawah kartu. Tekan berkali-kali kalau kamu mau beberapa salinan kartu yang sama.',
+  ],
+  [
+    'Cetak',
+    'Buka panel Antrean di kanan atas, periksa daftarnya, lalu tekan Cetak. Ikuti pengaturan di tab Cetak.',
+  ],
 ];
 
 const PRINT_SETTINGS = [
@@ -24,11 +36,20 @@ const PRINT_SETTINGS = [
 ];
 
 const CARD_PARTS = [
-  ['Lencana di kanan atas', 'Level spell. "Cantrip" berarti bisa dipakai sesering apa pun tanpa menghabiskan spell slot.'],
+  [
+    'Lencana di kanan atas',
+    'Level spell. "Cantrip" berarti bisa dipakai sesering apa pun tanpa menghabiskan spell slot.',
+  ],
   ['Baris di bawah gambar', 'School sihirnya, lalu daftar class yang bisa memakai spell ini.'],
-  ['Cara pakai', 'Urutan yang kamu lakukan di meja, dari menghabiskan aksi sampai efeknya berlaku. Ikuti nomornya dari atas.'],
+  [
+    'Cara pakai',
+    'Urutan yang kamu lakukan di meja, dari menghabiskan aksi sampai efeknya berlaku. Ikuti nomornya dari atas.',
+  ],
   ['Tanda ›', 'Catatan tambahan di luar urutan langkah.'],
-  ['Bilah bawah', 'Waktu merapal, jarak jangkauan, berapa lama bertahan, dan apa yang kamu butuhkan untuk merapalnya.'],
+  [
+    'Bilah bawah',
+    'Waktu merapal, jarak jangkauan, berapa lama bertahan, dan apa yang kamu butuhkan untuk merapalnya.',
+  ],
 ];
 
 const GLOSSARY = [
@@ -37,13 +58,25 @@ const GLOSSARY = [
   ['Reaksi (reaction)', 'Respons cepat di luar giliranmu, satu kali per ronde.'],
   ['AC', 'Armor Class — angka yang harus dilampaui lemparan seranganmu.'],
   ['Saving throw / save', 'Lemparan d20 yang dilakukan sasaran untuk menghindar atau bertahan.'],
-  ['DC sihirmu', '8 + bonus proficiency + modifier ability sihirmu. Angka yang harus dicapai sasaran saat save.'],
-  ['Modifier sihir', 'Modifier ability yang dipakai class-mu: INT untuk Wizard, WIS untuk Cleric dan Druid, CHA untuk Bard, Sorcerer, Warlock, dan Paladin.'],
+  [
+    'DC sihirmu',
+    '8 + bonus proficiency + modifier ability sihirmu. Angka yang harus dicapai sasaran saat save.',
+  ],
+  [
+    'Modifier sihir',
+    'Modifier ability yang dipakai class-mu: INT untuk Wizard, WIS untuk Cleric dan Druid, CHA untuk Bard, Sorcerer, Warlock, dan Paladin.',
+  ],
   ['Proficiency', 'Bonus yang naik seiring level karaktermu (+2 di level 1).'],
-  ['Konsentrasi', 'Hanya satu spell konsentrasi yang boleh aktif. Kena damage berarti lempar save CON DC 10 atau sihirnya buyar.'],
+  [
+    'Konsentrasi',
+    'Hanya satu spell konsentrasi yang boleh aktif. Kena damage berarti lempar save CON DC 10 atau sihirnya buyar.',
+  ],
   ['Ritual', 'Merapal tanpa memakai spell slot, tapi butuh tambahan 10 menit.'],
   ['Focus sihir', 'Tongkat, kristal, atau simbol suci yang menggantikan bahan biasa.'],
-  ['Advantage / Disadvantage', 'Lempar dua d20, ambil yang lebih besar (advantage) atau lebih kecil (disadvantage).'],
+  [
+    'Advantage / Disadvantage',
+    'Lempar dua d20, ambil yang lebih besar (advantage) atau lebih kecil (disadvantage).',
+  ],
   ['Kotak', '1 kotak di peta = 5 kaki. Jarak "30 kaki" berarti 6 kotak.'],
 ];
 
@@ -127,7 +160,9 @@ export default function GuideDialog({ open, onClose }) {
               aria-selected={tab === item.id}
               onClick={() => setTab(item.id)}
               className={`whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 ${
-                tab === item.id ? 'bg-purple-600 text-white' : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                tab === item.id
+                  ? 'bg-purple-600 text-white'
+                  : 'text-slate-400 hover:bg-slate-800 hover:text-white'
               }`}
             >
               {item.label}
@@ -140,7 +175,10 @@ export default function GuideDialog({ open, onClose }) {
             <Section title="Empat langkah">
               <ol className="space-y-2">
                 {APP_STEPS.map(([title, detail], index) => (
-                  <li key={title} className="flex gap-3 rounded-lg border border-slate-800 bg-slate-950/60 p-3">
+                  <li
+                    key={title}
+                    className="flex gap-3 rounded-lg border border-slate-800 bg-slate-950/60 p-3"
+                  >
                     <span className="flex h-6 w-6 flex-none items-center justify-center rounded-full bg-purple-600 text-xs font-black">
                       {index + 1}
                     </span>
@@ -162,8 +200,8 @@ export default function GuideDialog({ open, onClose }) {
               <Section title="Setelah tercetak">
                 <p className="text-sm leading-relaxed text-slate-400">
                   Setiap halaman A4 memuat 9 kartu berukuran 63 × 88 mm — sama dengan kartu permainan pada
-                  umumnya, jadi muat di card sleeve biasa. Potong mengikuti tanda sudut yang tercetak di sekeliling
-                  tiap kartu. Kalau ingin lebih awet, cetak di kertas 200–250 gsm.
+                  umumnya, jadi muat di card sleeve biasa. Potong mengikuti tanda sudut yang tercetak di
+                  sekeliling tiap kartu. Kalau ingin lebih awet, cetak di kertas 200–250 gsm.
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-slate-400">
                   Ingin menyimpannya sebagai berkas? Di dialog cetak, pilih tujuan{' '}
